@@ -12,7 +12,7 @@
 2. **Accede a la Carpeta del Proyecto**:
    
     ```bash
-    cd UltimoParcialPOO
+    cd ProyectoFinalPOO
     ```
 
 3. **Ejecuta `clean install` con Maven**:
