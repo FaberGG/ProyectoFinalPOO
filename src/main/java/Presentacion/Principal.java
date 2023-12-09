@@ -72,7 +72,8 @@ public class Principal {
                     
                     if (pacientebuscar == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
-                    } else {
+                        break;
+                    }
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
                         

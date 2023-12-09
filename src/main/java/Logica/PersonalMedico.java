@@ -93,7 +93,6 @@ public class PersonalMedico extends Persona {
                 return "No se remite al paciente y se le administra medicamento";
 
             }else{
-
                 return "Se da de alta al paciente";
             }
         }
