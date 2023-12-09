@@ -6,7 +6,7 @@
    Abre una terminal y ejecuta el siguiente comando para clonar el proyecto:
 
     ```bash
-    git clone https://github.com/FaberGG/UltimoParcialPOO.git
+    git clone https://github.com/FaberGG/ProyectoFinalPOO.git
     ```
 
 2. **Accede a la Carpeta del Proyecto**:
