@@ -27,7 +27,7 @@ public class PersonalMedico extends Persona {
     }
  */ 
      
-    public String obtenerTipo(){
+    public String obtenerInfo(){
         return "Personal Medico";
     }
     public String getEspecializacion() {

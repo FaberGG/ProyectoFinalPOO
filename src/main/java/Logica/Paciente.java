@@ -29,8 +29,15 @@ public class Paciente extends Persona {
         this.pulmon = new Pulmon(presioninterna, tasadeflujo, edadpulmon);
     }
 
-    public String obtenerTipo(){
-        return "Paciente";
+    public String obtenerInfo(){
+        StringBuilder info = new StringBuilder();
+        info.append("-----------PACIENTE-----------\n   -");
+        info.append(this.toString());
+        info.append("-------HOSPITAL ASOCIADO-------\n   -");
+        info.append(this.hospital.toString());
+        info.append("--------EXAMEN ASOCIADO--------\n   -");
+
+        return info.toString();
     }
     public String getSexo() {
         return Sexo;

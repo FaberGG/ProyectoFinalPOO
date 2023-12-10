@@ -70,10 +70,20 @@ public class Principal {
                     }
                 }
                 case 3 -> {
-                    
+
                 }
 
-                case 4 -> {
+                case 4 -> { //mostrar personal del hospital y pacientes
+                    console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getnombre());
+                    console.imprimirEncabezado("D O C T O R E S ");
+                    for (PersonalMedico doctor : hospitalsanitas.getDoctores()) {
+
+                    }
+                    console.imprimirEncabezado("P A C I E N T E S");
+                    for (Paciente paciente : hospitalsanitas.getPacientes()) {
+                        
+                    }
+
                 }
 
             }
@@ -81,6 +91,7 @@ public class Principal {
         console.imprimirEncabezado("EL PROGRAMA HA FINALIZADO");
 
     }
+
     // acá acaba el main
     private static Paciente crearPaciente() {
         String Nombre = console.leerString("Ingrese el nombre del paciente: ");
@@ -115,7 +126,7 @@ public class Principal {
                 "Ingrese la tasa de flujo en los pulmones: ");
         int EdadPulmon = console.leerEntero(
                 "Ingrese la edad de los pulmones: ");
-        
+
         //se crea el paciente con los datos ingresados por el usuario
         Paciente nuevoPaciente = new Paciente(Nombre, Apellido, Edad, Identificacion, Sexo, RitmoCardiaco,
                 PresionSistolica, PresionDistolica, TamañoCorazon, CantidadGrasa, GlobulosRojos,

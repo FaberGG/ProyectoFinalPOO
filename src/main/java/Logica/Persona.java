@@ -16,7 +16,7 @@ public abstract class Persona {
     @Setter @Getter private int ID;
     @Setter @Getter private Hospital hospital;
 
-    public abstract String obtenerTipo();
+    public abstract String obtenerInfo();
     
     public Hospital getHospital() {
         return hospital;
