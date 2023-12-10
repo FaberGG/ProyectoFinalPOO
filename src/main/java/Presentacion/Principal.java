@@ -69,8 +69,8 @@ public class Principal {
                         System.out.println("FUNCION FISIOLOGICA DEL PULMON: " + resultadoPulmon);
                     }
                 }
-
                 case 3 -> {
+                    
                 }
 
                 case 4 -> {

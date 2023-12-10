@@ -3,18 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
-
+import lombok.Getter;
+import lombok.Setter;
 /**
  *
  * @author sofi_
  */
 
 public class Corazon extends Organos_Biologicos{
-    private int RitmoCardiaco;
-    private int PresionSitolica;
-    private int PresionDistolica;
-    private int TamañoCorazon;
-    private int CantidadGrasa;
+    @Setter @Getter private int RitmoCardiaco;
+    @Setter @Getter private int PresionSitolica;
+    @Setter @Getter private int PresionDistolica;
+    @Setter @Getter private int TamañoCorazon;
+    @Setter @Getter private int CantidadGrasa;
 
     public Corazon(int RitmoCardiaco, int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa) {
         this.RitmoCardiaco = RitmoCardiaco;

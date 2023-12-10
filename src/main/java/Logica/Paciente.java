@@ -3,19 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
-
+import lombok.Getter;
+import lombok.Setter;
 /**
  *
  * @author sofi_
  */
 public class Paciente extends Persona {
 
-    private String Sexo;
-    private Corazon corazon;
-    private Sangre sangre;
-    private Hospital hospital;
-    private Examen examen;
-    private Pulmon pulmon;
+    @Setter @Getter private String Sexo;
+    @Setter @Getter private Corazon corazon;
+    @Setter @Getter private Sangre sangre;
+    @Setter @Getter private Hospital hospital;
+    @Setter @Getter private Examen examen;
+    @Setter @Getter private Pulmon pulmon;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
             int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,

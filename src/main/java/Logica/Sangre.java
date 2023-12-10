@@ -4,12 +4,20 @@
  */
 package Logica;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *
  * @author sofi_
  */
 public class Sangre extends Organos_Biologicos {
-     private int GlobulosRojos;
+
+    @Setter
+    @Getter
+    private int GlobulosRojos;
+    @Setter
+    @Getter
     private int GlobulosBlancos;
 
     public Sangre(int GlobulosRojos, int GlobulosBlancos) {
@@ -42,19 +50,16 @@ public class Sangre extends Organos_Biologicos {
     public String funcionBiologica(Examen examen) {
         String estadoGlobulosBlancos = examen.CalcularGlobulosBlancos(examen.getPaciente());
         String estadoGlobulosRojos = examen.CalcularGlobulosRojos(examen.getPaciente());
-        if (estadoGlobulosRojos=="BAJOS"&& estadoGlobulosBlancos=="BAJOS"||estadoGlobulosRojos=="ALTOS"&& estadoGlobulosBlancos=="ALTOS"){
+        if (estadoGlobulosRojos == "BAJOS" && estadoGlobulosBlancos == "BAJOS" || estadoGlobulosRojos == "ALTOS" && estadoGlobulosBlancos == "ALTOS") {
             return "AL REVISAR SU EXÁMEN, SE DETERMINA QUE LA SANGRE SE ENCUENTRA EN UN ESTADO CRITICO";
-        }else{
-            if(estadoGlobulosRojos=="BAJOS"&& estadoGlobulosBlancos=="NORMAL"||estadoGlobulosRojos=="ALTOS"&& estadoGlobulosRojos=="NORMAL"
-            ||estadoGlobulosRojos=="NORMAL"&& estadoGlobulosBlancos=="BAJOS"||estadoGlobulosRojos=="NORMAL"&& estadoGlobulosRojos=="ALTOS"
-            ){ 
+        } else {
+            if (estadoGlobulosRojos == "BAJOS" && estadoGlobulosBlancos == "NORMAL" || estadoGlobulosRojos == "ALTOS" && estadoGlobulosRojos == "NORMAL"
+                    || estadoGlobulosRojos == "NORMAL" && estadoGlobulosBlancos == "BAJOS" || estadoGlobulosRojos == "NORMAL" && estadoGlobulosRojos == "ALTOS") {
                 return "AL REVISAR SU EXAMEN, SE DETERMINA QUE EL ESTADO DE LA SANGRE ES MODERADO AUNQUE SE NECESITA HACER MÁS ANÁLISIS";
+            }
         }
-
-        }
-                return "POR SU EXÁMEN, SE DETERMINA QUE SU SANGRE SE ENCUENTA EN RANGOS SALUDABLES";
-
+        return "POR SU EXÁMEN, SE DETERMINA QUE SU SANGRE SE ENCUENTA EN RANGOS SALUDABLES";
 
     }
-    
+
 }

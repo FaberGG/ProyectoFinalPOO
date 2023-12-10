@@ -4,13 +4,16 @@
  */
 package Logica;
 import Logica.Paciente;
+
+import lombok.Getter;
+import lombok.Setter;
 /**
  *
  * @author sofi_
  */
 public class PersonalMedico extends Persona {
-    private String Especializacion;
-    private Hospital hospital;
+    @Setter @Getter private String Especializacion;
+    @Setter @Getter private Hospital hospital;
     //private Paciente paciente;
     //PROFE ACÁ EL ATRIBUTO DE TIPO PACIENTE, EL CÓDIGO SIGUE FUNCIONANDO POR LO QUE SOLO ENTRA EL PACIENTE COMO PARÁMETRO
    

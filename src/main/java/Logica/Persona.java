@@ -3,17 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
-
+import lombok.Getter;
+import lombok.Setter;
 /**
  *
  * @author sofi_
  */
 public abstract class Persona {
-    private String Nombre;
-    private String Apellido;
-    private int Edad;
-    private int ID;
-    private Hospital hospital;
+    @Setter @Getter private String Nombre;
+    @Setter @Getter private String Apellido;
+    @Setter @Getter private int Edad;
+    @Setter @Getter private int ID;
+    @Setter @Getter private Hospital hospital;
 
     public abstract String obtenerTipo();
     

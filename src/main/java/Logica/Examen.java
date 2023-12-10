@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+import lombok.Setter;
+import lombok.Getter;
 
 /**
  *
@@ -10,9 +12,9 @@ package Logica;
  */
 public class Examen {
 
-    private String Resultados;
-    private Paciente paciente;
-    private PersonalMedico doctor;
+    @Setter @Getter private String Resultados;
+    @Setter @Getter private Paciente paciente;
+    @Setter @Getter private PersonalMedico doctor;
 
     public String generarResultados() {
         StringBuilder informe = new StringBuilder("");

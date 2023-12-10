@@ -6,6 +6,8 @@ package Logica;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
@@ -13,10 +15,10 @@ import java.util.List;
  */
 public class Hospital {
 
-    private String nombre;
-    private String direccion;
-    private List<Paciente> pacientes;
-    private List<PersonalMedico> doctores;
+    @Setter @Getter private String nombre;
+    @Setter @Getter private String direccion;
+    @Setter @Getter private List<Paciente> pacientes;
+    @Setter @Getter private List<PersonalMedico> doctores;
 
     public Hospital(String nombre, String direccion) {
         this.nombre = nombre;
