@@ -42,8 +42,18 @@ public class Sangre extends Organos_Biologicos {
     public String funcionBiologica(Examen examen) {
         String estadoGlobulosBlancos = examen.CalcularGlobulosBlancos(examen.getPaciente());
         String estadoGlobulosRojos = examen.CalcularGlobulosRojos(examen.getPaciente());
-        return "La sangre presenta un estado de glóbulos blancos: " + estadoGlobulosBlancos +
-                " y un estado de glóbulos rojos: " + estadoGlobulosRojos + ".";
+        if (estadoGlobulosRojos=="BAJOS"&& estadoGlobulosBlancos=="BAJOS"||estadoGlobulosRojos=="ALTOS"&& estadoGlobulosBlancos=="ALTOS"){
+            return "AL REVISAR SU EXÁMEN, SE DETERMINA QUE LA SANGRE SE ENCUENTRA EN UN ESTADO CRITICO";
+        }else{
+            if(estadoGlobulosRojos=="BAJOS"&& estadoGlobulosBlancos=="NORMAL"||estadoGlobulosRojos=="ALTOS"&& estadoGlobulosRojos=="NORMAL"
+            ||estadoGlobulosRojos=="NORMAL"&& estadoGlobulosBlancos=="BAJOS"||estadoGlobulosRojos=="NORMAL"&& estadoGlobulosRojos=="ALTOS"
+            ){ 
+                return "AL REVISAR SU EXAMEN, SE DETERMINA QUE EL ESTADO DE LA SANGRE ES MODERADO AUNQUE SE NECESITA HACER MÁS ANÁLISIS";
+        }
+
+        }
+                return "POR SU EXÁMEN, SE DETERMINA QUE SU SANGRE SE ENCUENTA EN RANGOS SALUDABLES";
+
 
     }
     

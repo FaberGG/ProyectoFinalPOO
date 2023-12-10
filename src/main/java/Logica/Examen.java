@@ -72,11 +72,11 @@ public class Examen {
         int ritmoCardiaco = paciente.getcorazon().getRitmoCardiaco();
 
         if (ritmoCardiaco < 60) {
-            return "Bradicardia";
+            return "BRADICARDIA";
         } else if (ritmoCardiaco > 100) {
-            return "Taquicardia";
+            return "TAQUICARDI";
         } else {
-            return "Normal";
+            return "NORMAL";
         }
     }
 
@@ -88,19 +88,19 @@ public class Examen {
         String sistolica, distolica;
 
         if (presionSistolica < 90) {
-            sistolica = "baja";
+            sistolica = "BAJA";
         } else if (presionSistolica > 120) {
-            sistolica = "alta";
+            sistolica = "ALTA";
         } else {
-            sistolica = "normal";
+            sistolica = "NORMAL";
         }
 
         if (presionDistolica < 60) {
-            distolica = "baja";
+            distolica = "BAJA";
         } else if (presionDistolica > 80) {
-            distolica = "alta";
+            distolica = "ALTA";
         } else {
-            distolica = "normal";
+            distolica = "NORMAL";
         }
         return sistolica + "/" + distolica;
 
@@ -111,11 +111,11 @@ public class Examen {
         int cantidadGrasa = paciente.getcorazon().getCantidadGrasa();
 
         if (cantidadGrasa < 10) {
-            return "Bajo";
+            return "BAJO";
         } else if (cantidadGrasa >= 10 && cantidadGrasa <= 20) {
-            return "Moderado";
+            return "MODERADO";
         } else {
-            return "Alto";
+            return "ALTO";
         }
     }
 
@@ -154,4 +154,43 @@ public class Examen {
         }
     }
 
+<<<<<<< HEAD
+=======
+
+
+    public String CalcularPresionInterna(Paciente paciente){
+       int Presioni=paciente.getPulmon().getPresionInterna();
+       if (Presioni<-200){ 
+        return "PRESION BAJA";}
+        else if (Presioni >200) {
+            return "PRESION ALTA";
+        }else 
+        return "PRESION NORMAL"; 
+    }
+  
+     public String CalcularTasaDeFlujo(Paciente paciente){
+       int TasaF =paciente.getPulmon().getPresionInterna();
+       if (TasaF<2000){ 
+        return "TASA DE FLUJO BAJA";}
+        else if (TasaF >5000) {
+            return "TASA DE FLUJO ALTA";
+        }else { 
+        return "TASA DE FLUJO NORMAL"; 
+      }
+>>>>>>> c1bc31271eea832f651000ebfba5c1f7030dbfa7
 }
+
+     public String EdadPulmon (Paciente paciente){
+       int EdadP =paciente.getPulmon().getEdadpulmon();
+       if (EdadP>70){ 
+        return "EDAD DE PULMONES ALTO";}
+        else { 
+        return "EDAD DE PULMONES NORMAL "; 
+      }
+}
+
+
+}
+
+    
+
