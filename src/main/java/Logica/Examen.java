@@ -9,10 +9,35 @@ package Logica;
  * @author sofi_
  */
 public class Examen {
+
     private String Resultados;
     private Paciente paciente;
     private PersonalMedico doctor;
- 
+
+    public String generarResultados() {
+        StringBuilder informe = new StringBuilder("");
+
+        informe.append(" -Paciente:    ").append(paciente.getNombre()).append(" ")
+                .append(paciente.getApellido()).append("\n \n");
+        informe.append("   --RESULTADOS DEL EXAMEN-- \n");
+
+        informe.append("ESTADO CARDIACO: ").append(paciente.getcorazon().getRitmoCardiaco())
+                .append("      ").append(EstadoCardiaco(paciente)).append("\n");
+        informe.append("PRESION ARTERIAL: ").append(paciente.getcorazon().getPresionSitolica())
+                .append("/").append(paciente.getcorazon().getPresionDistolica())
+                .append("     ").append(EstadoPresionArterial(paciente)).append("\n");
+        informe.append("GLOBULOS BLANCOS: ").append(paciente.getsangre().getGlobulosBlancos())
+                .append("      ").append(CalcularGlobulosBlancos(paciente)).append("\n");
+        informe.append("GLOBULOS ROJOS: ").append(paciente.getsangre().getGlobulosRojos())
+                .append("          ").append(CalcularGlobulosRojos(paciente)).append("\n");
+        informe.append("TAMAÑO CORAZON: ").append(paciente.getcorazon().getTamañoCorazon())
+                .append("         ").append(CalcularTamañoCorazon(paciente)).append("\n");
+        informe.append("CANTIDAD GRASA: ").append(paciente.getcorazon().getCantidadGrasa())
+                .append("         ").append(CalcularGrasa(paciente)).append("\n");
+
+        return informe.toString();
+    }
+
     public String getResultados() {
         return Resultados;
     }
@@ -33,15 +58,15 @@ public class Examen {
         return doctor;
     }
 
-
     public Examen(String Resultados) {
         this.Resultados = Resultados;
-        
+
     }
 
-    public Examen(){
-        
+    public Examen() {
+
     }
+
     public String EstadoCardiaco(Paciente paciente) {
 
         int ritmoCardiaco = paciente.getcorazon().getRitmoCardiaco();
@@ -81,7 +106,7 @@ public class Examen {
 
     }
 
-     public String CalcularGrasa(Paciente paciente) {
+    public String CalcularGrasa(Paciente paciente) {
 
         int cantidadGrasa = paciente.getcorazon().getCantidadGrasa();
 
@@ -95,37 +120,38 @@ public class Examen {
     }
 
     public String CalcularTamañoCorazon(Paciente paciente) {
-    int  tamañoCorazon = paciente.getcorazon().getTamañoCorazon();
+        int tamañoCorazon = paciente.getcorazon().getTamañoCorazon();
 
-        if (tamañoCorazon<60){
-        return "VOLUMEN BAJO";}
-
-        else if (tamañoCorazon>80) {
-            return "VOLUMEN ALTO"; 
-        } else 
-             return "VOLUMEN NORMAL"; 
+        if (tamañoCorazon < 60) {
+            return "VOLUMEN BAJO";
+        } else if (tamañoCorazon > 80) {
+            return "VOLUMEN ALTO";
+        } else {
+            return "VOLUMEN NORMAL";
+        }
 
     }
 
-    public String CalcularGlobulosRojos(Paciente paciente){
-       int globulosRojos=paciente.getsangre().getGlobulosRojos();
-       if (globulosRojos<4.5){ 
-        return "BAJOS";}
-        else if (globulosRojos >6.0) {
+    public String CalcularGlobulosRojos(Paciente paciente) {
+        int globulosRojos = paciente.getsangre().getGlobulosRojos();
+        if (globulosRojos < 4.5) {
+            return "BAJOS";
+        } else if (globulosRojos > 6.0) {
             return "ALTOS";
-        }else 
-        return "NORMAL"; 
-}
+        } else {
+            return "NORMAL";
+        }
+    }
 
-    public String CalcularGlobulosBlancos(Paciente paciente){
-       int globulosRojos=paciente.getsangre().getGlobulosRojos();
-       if (globulosRojos<4000){ 
-        return "BAJOS";}
-        else if (globulosRojos >11000) {
+    public String CalcularGlobulosBlancos(Paciente paciente) {
+        int globulosRojos = paciente.getsangre().getGlobulosRojos();
+        if (globulosRojos < 4000) {
+            return "BAJOS";
+        } else if (globulosRojos > 11000) {
             return "ALTOS";
-        }else 
-        return "NORMAL"; 
-}
+        } else {
+            return "NORMAL";
+        }
+    }
 
-    
 }

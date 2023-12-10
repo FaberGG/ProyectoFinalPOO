@@ -69,7 +69,7 @@ public class Principal {
                     
                     Paciente pacientebuscar = hospitalsanitas.BuscarPaciente(identificacion);
                     
-                    
+ 
                     if (pacientebuscar == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
                         break;
@@ -77,6 +77,7 @@ public class Principal {
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
                                                 
+                        examenpaciente.setPaciente(pacientebuscar);
                         
                         String EstadoC = examenpaciente.EstadoCardiaco(pacientebuscar);
                         String PresionA = examenpaciente.EstadoPresionArterial(pacientebuscar);
@@ -84,7 +85,6 @@ public class Principal {
                         String GlobulosR = examenpaciente.CalcularGlobulosRojos(pacientebuscar);
                         String CalcularG = examenpaciente.CalcularGrasa(pacientebuscar);
                         String CalcularT = examenpaciente.CalcularTamañoCorazon(pacientebuscar);
-                        examenpaciente.setPaciente(pacientebuscar);
                         // Se llaman los metodos funciones biologicas de corazon y de sangre
                         String resultadoCorazon = pacientebuscar.getcorazon().funcionBiologica(examenpaciente);
                         String resultadoSangre = pacientebuscar.getsangre().funcionBiologica(examenpaciente);
