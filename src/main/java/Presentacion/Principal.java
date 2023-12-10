@@ -68,8 +68,7 @@ public class Principal {
                             "Ingrese la identificacion del paciente para buscar su examen");
                     
                     Paciente pacientebuscar = hospitalsanitas.BuscarPaciente(identificacion);
-                    
- 
+                     
                     if (pacientebuscar == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
                         break;
@@ -77,40 +76,11 @@ public class Principal {
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
                                                 
+                        //settea
                         examenpaciente.setPaciente(pacientebuscar);
-                        
-                        String EstadoC = examenpaciente.EstadoCardiaco(pacientebuscar);
-                        String PresionA = examenpaciente.EstadoPresionArterial(pacientebuscar);
-                        String GlobulosB = examenpaciente.CalcularGlobulosBlancos(pacientebuscar);
-                        String GlobulosR = examenpaciente.CalcularGlobulosRojos(pacientebuscar);
-                        String CalcularG = examenpaciente.CalcularGrasa(pacientebuscar);
-                        String CalcularT = examenpaciente.CalcularTamañoCorazon(pacientebuscar);
-                        // Se llaman los metodos funciones biologicas de corazon y de sangre
-                        String resultadoCorazon = pacientebuscar.getcorazon().funcionBiologica(examenpaciente);
-                        String resultadoSangre = pacientebuscar.getsangre().funcionBiologica(examenpaciente);
-
-                        System.out.println(
-                                "ESTADO CARDIACO:" + pacientebuscar.getcorazon().getRitmoCardiaco() + "      "
-                                + EstadoC);
-                        System.out.println("PRESION ARTERIAL:" + pacientebuscar.getcorazon().getPresionSitolica() + "/"
-                                + pacientebuscar.getcorazon().getPresionDistolica()
-                                + "    " + PresionA);
-                        System.out.println(
-                                "GLOBULOS BLANCOS:" + pacientebuscar.getsangre().getGlobulosBlancos() + "      "
-                                + GlobulosB);
-                        System.out.println(
-                                "GLOBULOS ROJOS:" + pacientebuscar.getsangre().getGlobulosRojos() + "          "
-                                + GlobulosR);
-                        System.out.println(
-                                "TAMAÑO CORAZON:" + pacientebuscar.getcorazon().getTamañoCorazon() + "         "
-                                + CalcularT);
-                        System.out.println(
-                                "CANTIDAD GRASA:" + pacientebuscar.getcorazon().getCantidadGrasa() + "         "
-                                + CalcularG);
-                        System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN: " + resultadoCorazon);
-                        System.out.println("FUNCION FISIOLOGICA DE LA SANGRE: " + resultadoSangre);
-                        
-                        
+                        //llama al metodo generar resultados y los imprime
+                        System.out.println(examenpaciente.generarResultados());
+                                                
                     }
                 }
 
