@@ -13,8 +13,6 @@ import lombok.Setter;
  */
 
 
-//herencia asociacion muchos -sofia
-// clase abstracta, main, solid  -faber
 public class Sangre implements Organos_Biologicos {
 
     @Setter @Getter private int GlobulosRojos;

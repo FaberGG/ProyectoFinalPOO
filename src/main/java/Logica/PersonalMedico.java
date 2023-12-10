@@ -28,7 +28,17 @@ public class PersonalMedico extends Persona {
     //implementacion del metodo abstracto
     @Override
     public String obtenerInfo() {
-        return "Personal Medico";
+        StringBuilder info = new StringBuilder();
+        info.append("-------PERSONAL MEDICO---------\n   -");
+        info.append(this.toString());
+        info.append("-------HOSPITAL ASOCIADO-------\n   -");
+        info.append(this.hospital.toString());
+        info.append("------PACIENTES ASOCIADOS------\n   -");
+        
+        for (Paciente paciente : this.pacientes) {
+            info.append(paciente.toString()).append("\n   -");
+        }
+        return info.toString();
     }
 
     public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {

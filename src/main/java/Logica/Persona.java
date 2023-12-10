@@ -12,7 +12,6 @@ import lombok.Setter;
  * @author sofi_
  */
 public abstract class Persona {
-    
     @Setter @Getter private String Nombre;
     @Setter @Getter private String Apellido;
     @Setter @Getter private int Edad;

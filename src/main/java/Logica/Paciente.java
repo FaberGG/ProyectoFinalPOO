@@ -42,6 +42,7 @@ public class Paciente extends Persona {
         info.append("-------HOSPITAL ASOCIADO-------\n   -");
         info.append(this.hospital.toString());
         info.append("--------EXAMEN ASOCIADO--------\n   -");
+        info.append(this.examen.toString());
 
         return info.toString();
     }
