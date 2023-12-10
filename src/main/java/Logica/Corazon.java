@@ -76,12 +76,12 @@ public class Corazon extends Organos_Biologicos{
 		
 	String estadoCardiaco = examen.EstadoCardiaco(examen.getPaciente());
         switch (estadoCardiaco) {
-            case "Bradicardia":
-                return "El corazón está experimentando bradicardia, que es una frecuencia cardíaca anormalmente baja.";
-            case "Taquicardia":
-                return "El corazón está experimentando taquicardia, que es una frecuencia cardíaca anormalmente alta.";
+            case "BRADICARDIA":
+                return "POR SU EXAMEN. SE DETERMINA QUE SU FRECUENCIA CARDIACA ES MENOR A LO QUE SE CONSIDERA SALUDABLE";
+            case "TAQUICARDIA":
+                return "POR SU EXAMEN, SE DETERMINA QUE SU FRECUENCIA CARDIACA ES MAYOR A LO QUE SE CONSIDERA SALUDABLE ";
             default:
-                return "El corazón tiene un ritmo cardíaco normal.";
+                return "POR SU EXAMEN, SE DETERMINA QUE SU FRECUENCIA CARDIACA ES SALUDABLE";
         }
 		
 	}
