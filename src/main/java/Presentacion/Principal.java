@@ -1,27 +1,38 @@
 package Presentacion;
-
 import java.util.Scanner;
 import Logica.*;
 
 public class Principal {
+    //CREAMOS OBJETO PARA RELACIZAR TODAS LAS LECTURAS NECESARIAS
+        static Scanner sc = new Scanner(System.in);
 
     //CREAMOS EL OBJETO HOSPITAL 
-    static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur- Alameda del parque");
-    static Scanner sc = new Scanner(System.in);
+        static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur- Alameda del parque");
 
-    public static void main(String[] args) {
-
+        public static void main(String[] args) {
         //CREAMOS OBJETO EXAMEN
-        Examen examenpaciente = new Examen("");
+                Examen examenpaciente = new Examen("");
 
+        //CREAMOS LOS OBJETOS DEL PERSONAL MÉDICO (DOCTORES)
+                PersonalMedico doctor1=new PersonalMedico ("Cristian", "Villada" ,56,  2222 ,"Hematologia");
+                PersonalMedico doctor2=new PersonalMedico ("Andres", "Chauta" ,46,  1111 ,"Cardiologia");
+                PersonalMedico doctor3=new PersonalMedico ("Felipe", "Guasca" ,36,  3333 ,"Neumologia");
+                PersonalMedico doctor4=new PersonalMedico ("Sebastian", "Leon" ,26,  4444 ,"Cardiologia");
+
+        //AGREGAMOS A LOS DOCTORES EN EL HOSPITAL 
+                hospitalsanitas.Agregardoctor(doctor1);
+                hospitalsanitas.Agregardoctor(doctor2);
+                hospitalsanitas.Agregardoctor(doctor3);
+                hospitalsanitas.Agregardoctor(doctor4);
+                
         // Invocamos el menú
         Consola console = new Consola();
-        int opcion;
-        do {
-            console.ImprimirMenuP();
+                int opcion;
+                         do {
+                                console.ImprimirMenuP();
+                                opcion = console.leerOpcion(5); // rango de opciones
 
-            opcion = console.leerOpcion(5); // rango de opciones
-
+        //CREAMOS EL SWITCH PARA EMPERZAR A TRABAJAR CON CADA CASO
             switch (opcion) {
                 case 1 -> {
                     String Nombre = console.leerString("Ingrese el nombre del paciente: ");
@@ -56,12 +67,15 @@ public class Principal {
                             "Ingrese la tasa de flujo en los pulmones: ");
                     int EdadPulmon = console.leerEntero(
                             "Ingrese la edad de los pulmones: ");
+        //CREAMOS EL OBJETO DE TIPO PACIENTE CON LOS DATOS PROPORCIONADOS POR EL USUARIO
+
                     Paciente nuevoPaciente = new Paciente(Nombre, Apellido, Edad, Identificacion, Sexo, RitmoCardiaco,
                             PresionSistolica, PresionDistolica, TamañoCorazon, CantidadGrasa, GlobulosRojos,
                             GlobulosBlancos, Presioninterna, Tasadeflujo, EdadPulmon);
-                    // AGREGAMOS AL PACIENTE EN EL HOSPITAL (ASOCIACION)
+                    // AGREGAMOS AL PACIENTE EN EL HOSPITAL (AGREGACION)
                     hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
                     
+                        
                     console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {

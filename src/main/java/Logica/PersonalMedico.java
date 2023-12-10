@@ -4,7 +4,6 @@
  */
 package Logica;
 import Logica.Paciente;
-import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -15,31 +14,20 @@ public class PersonalMedico extends Persona {
     private Hospital hospital;
     private List<Paciente> pacientes;
 
-    public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {
-
-        super(Nombre, Apellido, Edad, ID);
-        this.Especializacion = Especializacion;
-        this.pacientes=new ArrayList<>();
-    }
-
-
-
-
     public List<Paciente> getPacientes() {
         return pacientes;
     }
 
     public void setPacientes(List<Paciente> pacientes) {
         this.pacientes = pacientes;
-    }
-
-    public void agregarPacientes(Paciente paciente){
-        pacientes.add(paciente);
-    }
+    }   
     
+    
+    public void AgregarPacientes(Paciente paciente){
+    pacientes.add(paciente);
+    }
 
-
-
+     
     
     public String getEspecializacion() {
         return Especializacion;
@@ -50,10 +38,16 @@ public class PersonalMedico extends Persona {
     }
 
 
+    public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {
+
+        super(Nombre, Apellido, Edad, ID);
+        this.Especializacion = Especializacion;
+
+    }
+
     public void setHospital(Hospital hospital){
         this.hospital=hospital;
     }
-
     
     public Hospital getHospital(){
         return hospital;

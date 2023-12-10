@@ -32,16 +32,13 @@ import java.util.ArrayList;
         this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon); 
 
     }
+    
      public void Agregardoctor(PersonalMedico doctor){
         doctores.add(doctor);
-        doctor.agregarPacientes(this);
+       doctor.AgregarPacientes(this);
 
     }
 
-    
-  
-
-    
         public String getSexo() {
         return Sexo;
     }
