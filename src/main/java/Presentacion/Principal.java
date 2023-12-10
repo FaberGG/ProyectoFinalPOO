@@ -76,12 +76,7 @@ public class Principal {
                     }else{
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
-                        
-                        // NO LO IMPRIMIMOS
-                        // DEBEMOS GENERAR UN INFORME LLAMANDO A UNA FUNCION EN EXAMEN
-                        
-                        /* 
-                        
+                                                
                         
                         String EstadoC = examenpaciente.EstadoCardiaco(pacientebuscar);
                         String PresionA = examenpaciente.EstadoPresionArterial(pacientebuscar);
@@ -115,7 +110,7 @@ public class Principal {
                         System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN: " + resultadoCorazon);
                         System.out.println("FUNCION FISIOLOGICA DE LA SANGRE: " + resultadoSangre);
                         
-                        */
+                        
                     }
                 }
 
