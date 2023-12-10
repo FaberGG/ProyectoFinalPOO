@@ -33,7 +33,7 @@ public class Principal {
                     console.imprimirEncabezado("""
                                                MUY BIEN, ESTAMOS A UN PASO 
                                                DE INGRESARLO AL SISTEMA.
-                                               AHORA INGRESEMOS TUS DATOS CARDIOL\u00d3GICOS
+                                               AHORA INGRESEMOS TUS DATOS CARDIOLOGICOS
                                                """);
 
                     int RitmoCardiaco = console.leerEntero(
@@ -66,7 +66,7 @@ public class Principal {
                 case 2 -> {
                     int identificacion = console.leerEntero(
                             "Ingrese la identificacion del paciente para buscar su examen");
-                    
+                    //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
                     Paciente pacientebuscar = hospitalsanitas.BuscarPaciente(identificacion);
                      
                     if (pacientebuscar == null) {
@@ -78,12 +78,25 @@ public class Principal {
                                 + pacientebuscar.getApellido());
                                                 
                         //setteamos para asociar paciente-examen 
-                        
+
                         examenpaciente.setPaciente(pacientebuscar);
                         pacientebuscar.setExamen(examenpaciente);
                         //llama al metodo generar resultados y los imprime
                         System.out.println(examenpaciente.generarResultados());
-                                                
+                        //hacemos el polimorfismo con clase abstracta
+                        pacientebuscar.getcorazon().funcionBiologica(examenpaciente);
+                        pacientebuscar.getSangre().funcionBiologica(examenpaciente);
+                        pacientebuscar.getPulmon().funcionBiologica(examenpaciente);
+                         /*Organos_Biologicos organos[]=new Organos_Biologicos[3];
+                         organos[1]=pacientebuscar.getcorazon();
+                         organos[2]=pacientebuscar.getSangre();
+                         organos[3]=pacientebuscar.getPulmon();
+
+                         for (Organos_Biologicos organo:organos){
+                                pacientebuscar.
+                         }*/
+                        
+                                                   
                     }
                 }
 

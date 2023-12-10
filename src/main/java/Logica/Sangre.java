@@ -8,7 +8,7 @@ package Logica;
  *
  * @author sofi_
  */
-public class Sangre extends Organos_Biologicos {
+public class Sangre implements Organos_Biologicos {
      private int GlobulosRojos;
     private int GlobulosBlancos;
 

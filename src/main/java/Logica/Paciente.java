@@ -17,6 +17,7 @@ package Logica;
     private Hospital hospital;
     private Examen examen;
     private Pulmon pulmon;
+    private Organos_Biologicos organos;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
     int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
@@ -27,8 +28,13 @@ package Logica;
         this.corazon = new Corazon(RitmoCardiaco, PresionSitolica, PresionDistolica, TamañoCorazon, CantidadGrasa);
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);
         this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon); 
+
+
     }
+
+
     
+  
 
     
         public String getSexo() {

@@ -9,7 +9,7 @@ package Logica;
  * @author sofi_
  */
 
-public class Corazon extends Organos_Biologicos{
+public class Corazon implements Organos_Biologicos{
     private int RitmoCardiaco;
     private int PresionSitolica;
     private int PresionDistolica;

@@ -8,7 +8,7 @@ package Logica;
  *
  * @author sofi_
  */
-public class Pulmon extends Organos_Biologicos {
+public class Pulmon implements Organos_Biologicos {
     private int PresionInterna;
     private int Tasadeflujo;
     private int Edadpulmon;
@@ -55,7 +55,7 @@ public class Pulmon extends Organos_Biologicos {
         if (edadPulmones=="EDAD DE PULMONES ALTO"){
             return"SE DETERMINA QUE SUS PULMONES LLEVAN UNA EDAD AVANZADA Y PROBABLEMENTE PADECE DE PATOLOGÍAS POR DICHA RAZON";
      }
-            return"SE DETERMINA QUE LA EDAD DE SUS PULMONES ES ADECUADA Y SI SUFRE ALGUNA PATOLOGÍA, NO SERÁ POR ESTA RAZÓN";   
+        return"SE DETERMINA QUE LA EDAD DE SUS PULMONES ES ADECUADA Y SI SUFRE ALGUNA PATOLOGÍA, NO SERÁ POR ESTA RAZÓN";   
     
     }
 
