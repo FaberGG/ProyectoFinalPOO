@@ -8,13 +8,15 @@ package Logica;
  *
  * @author sofi_
  */
-public class Persona {
+public abstract class Persona {
     private String Nombre;
     private String Apellido;
     private int Edad;
     private int ID;
     private Hospital hospital;
 
+    public abstract String obtenerTipo();
+    
     public Hospital getHospital() {
         return hospital;
     }

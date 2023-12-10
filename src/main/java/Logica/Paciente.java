@@ -8,8 +8,7 @@ package Logica;
  *
  * @author sofi_
  */
-
-    public class Paciente extends Persona {
+public class Paciente extends Persona {
 
     private String Sexo;
     private Corazon corazon;
@@ -19,26 +18,26 @@ package Logica;
     private Pulmon pulmon;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
-    int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
-    int GlobulosBlancos, int presioninterna, int tasadeflujo, int edadpulmon ) {
+            int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
+            int GlobulosBlancos, int presioninterna, int tasadeflujo, int edadpulmon) {
         super(Nombre, Apellido, Edad, ID);
         this.Sexo = Sexo;
         //CREAMOS LOS OBJETOS DE LAS COMPOSICIONES 
         this.corazon = new Corazon(RitmoCardiaco, PresionSitolica, PresionDistolica, TamañoCorazon, CantidadGrasa);
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);
-        this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon); 
+        this.pulmon = new Pulmon(presioninterna, tasadeflujo, edadpulmon);
     }
-    
 
-    
-        public String getSexo() {
+    public String obtenerTipo(){
+        return "Paciente";
+    }
+    public String getSexo() {
         return Sexo;
     }
-
+    
     public void setSexo(String Sexo) {
         this.Sexo = Sexo;
     }
-
 
     public Corazon getcorazon() {
 
@@ -79,9 +78,12 @@ package Logica;
     public void setPulmon(Pulmon pulmon) {
         this.pulmon = pulmon;
     }
+
+    public Corazon getCorazon() {
+        return corazon;
+    }
     
-    
-    
+
     public Examen getExamen() {
         return examen;
     }
@@ -100,9 +102,7 @@ package Logica;
 
     @Override
     public String toString() {
-        return "Paciente{" +super.toString()+ "Sexo=" + Sexo  + ", corazon=" + corazon + ", sangre=" + sangre +  '}';
+        return "Paciente{" + super.toString() + "Sexo=" + Sexo + ", corazon=" + corazon + ", sangre=" + sangre + '}';
     }
 
 }
-
-    

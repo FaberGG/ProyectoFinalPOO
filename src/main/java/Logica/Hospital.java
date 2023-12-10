@@ -27,10 +27,8 @@ public class Hospital {
 
     //Creamos el metodo para agregar los doctores al hospital 
     public void Agregardoctor(PersonalMedico doctor) {
-        if(doctores.size() <= 4){
-            this.doctores.add(doctor);
-            doctor.setHospital(this);
-        }
+        this.doctores.add(doctor);
+        doctor.setHospital(this);
     }
 
     public String getnombre() {

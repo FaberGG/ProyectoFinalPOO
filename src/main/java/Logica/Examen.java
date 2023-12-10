@@ -36,13 +36,7 @@ public class Examen {
                 .append("         ").append(CalcularGrasa(paciente)).append("\n");
 
         
-        // Se llaman los métodos funciones biológicas de corazón y de sangre
-        String resultadoCorazon = paciente.getcorazon().funcionBiologica(this);
-        String resultadoSangre = paciente.getsangre().funcionBiologica(this);
-
-        informe.append("FUNCION FISIOLOGICA DEL CORAZÓN: ").append(resultadoCorazon).append("\n");
-        informe.append("FUNCION FISIOLOGICA DE LA SANGRE: ").append(resultadoSangre);
-
+        this.Resultados = informe.toString(); 
         return informe.toString();
     }
 
