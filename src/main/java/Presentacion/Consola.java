@@ -62,7 +62,7 @@ public class Consola {
 
     // METODO IMPRIMIR MENU PRINCIPAL
     public void ImprimirMenuP() {
-        imprimirEncabezado("BIENVENIDO AL SISTEMA HOSPITAL COLSANITAS");
+        imprimirEncabezado("BIENVENIDOS AL SISTEMA HOSPITAL COLSANITAS");
 
         imprimirEncabezado("POR FAVOR INGRESE UNA OPCION");
         System.out.println(" 1. Registrar un paciente");
