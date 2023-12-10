@@ -26,9 +26,12 @@ package Logica;
         //CREAMOS LOS OBJETOS DE LAS COMPOSICIONES 
         this.corazon = new Corazon(RitmoCardiaco, PresionSitolica, PresionDistolica, TamañoCorazon, CantidadGrasa);
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);
-        this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon);   }
+        this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon); 
+    }
+    
 
-    public String getSexo() {
+    
+        public String getSexo() {
         return Sexo;
     }
 

@@ -71,13 +71,16 @@ public class Principal {
                      
                     if (pacientebuscar == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
+                        
                         break;
                     }else{
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
                                                 
-                        //settea
+                        //setteamos para asociar paciente-examen 
+                        
                         examenpaciente.setPaciente(pacientebuscar);
+                        pacientebuscar.setExamen(examenpaciente);
                         //llama al metodo generar resultados y los imprime
                         System.out.println(examenpaciente.generarResultados());
                                                 
