@@ -4,6 +4,8 @@
  */
 package Logica;
 
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author sofi_
@@ -17,7 +19,7 @@ package Logica;
     private Hospital hospital;
     private Examen examen;
     private Pulmon pulmon;
-    private Organos_Biologicos organos;
+   private List<PersonalMedico>doctores;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
     int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
@@ -29,9 +31,12 @@ package Logica;
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);
         this.pulmon=new Pulmon(presioninterna, tasadeflujo, edadpulmon); 
 
+    }
+     public void Agregardoctor(PersonalMedico doctor){
+        doctores.add(doctor);
+        doctor.agregarPacientes(this);
 
     }
-
 
     
   

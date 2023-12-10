@@ -4,6 +4,8 @@
  */
 package Logica;
 import Logica.Paciente;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author sofi_
@@ -11,19 +13,33 @@ import Logica.Paciente;
 public class PersonalMedico extends Persona {
     private String Especializacion;
     private Hospital hospital;
-    //private Paciente paciente;
-    //PROFE ACÁ EL ATRIBUTO DE TIPO PACIENTE, EL CÓDIGO SIGUE FUNCIONANDO POR LO QUE SOLO ENTRA EL PACIENTE COMO PARÁMETRO
-   
+    private List<Paciente> pacientes;
 
-    /*public Paciente getPaciente() {
-        return paciente;
-    }*/
+    public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {
 
-   /*public void setPaciente(Paciente paciente) {
-       this.paciente=paciente;
+        super(Nombre, Apellido, Edad, ID);
+        this.Especializacion = Especializacion;
+        this.pacientes=new ArrayList<>();
     }
- */ 
-     
+
+
+
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
+
+    public void agregarPacientes(Paciente paciente){
+        pacientes.add(paciente);
+    }
+    
+
+
+
     
     public String getEspecializacion() {
         return Especializacion;
@@ -34,16 +50,10 @@ public class PersonalMedico extends Persona {
     }
 
 
-    public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {
-
-        super(Nombre, Apellido, Edad, ID);
-        this.Especializacion = Especializacion;
-
-    }
-
     public void setHospital(Hospital hospital){
         this.hospital=hospital;
     }
+
     
     public Hospital getHospital(){
         return hospital;
@@ -57,7 +67,7 @@ public class PersonalMedico extends Persona {
             aux++;
         } 
 
-        if (paciente.getExamen().EstadoCardiaco(paciente).equals("Taquicardia") || paciente.getExamen().EstadoCardiaco(paciente).equals("Bradicardia")) {
+        if (paciente.getExamen().EstadoCardiaco(paciente).equals("TAQUICARDIA") || paciente.getExamen().EstadoCardiaco(paciente).equals("BRADICARDIA")) {
             aux += 2;
         } 
 
@@ -67,13 +77,13 @@ public class PersonalMedico extends Persona {
 
         String estadoPresionArterial = paciente.getExamen().EstadoPresionArterial(paciente);
 
-        if (estadoPresionArterial.equals("bajo / alto") || estadoPresionArterial.equals("alto / alto") || estadoPresionArterial.equals("bajo / bajo") || estadoPresionArterial.equals("alto / bajo")) {
+        if (estadoPresionArterial.equals("BAJO / ALTO") || estadoPresionArterial.equals("ALTO / ALTO") || estadoPresionArterial.equals("BAJO / BAJO") || estadoPresionArterial.equals("ALTO / BAJO")) {
             aux += 1;
         }
         String EstadoGlobulosG=paciente.getExamen().CalcularGlobulosBlancos(paciente);
         String EstadoGlobulosR=paciente.getExamen().CalcularGlobulosRojos(paciente);
 
-        if (EstadoGlobulosG.equals("BAJOS") || EstadoGlobulosG.equals("ALTOS") ||EstadoGlobulosR.equals("BAJOS") ||EstadoGlobulosR.equals("Altos")) {
+        if (EstadoGlobulosG.equals("BAJOS") || EstadoGlobulosG.equals("ALTOS") ||EstadoGlobulosR.equals("BAJOS") ||EstadoGlobulosR.equals("ALTOS")) {
             aux += 1;
         }
 
@@ -86,7 +96,7 @@ public class PersonalMedico extends Persona {
         int aux = RealizarConteo(paciente);
 
         if (aux >= 4) {
-            return " Se Remite al paciente";
+            return " Se remite el paciente";
         } else {
             if(aux < 4 && aux >=1 ){
 

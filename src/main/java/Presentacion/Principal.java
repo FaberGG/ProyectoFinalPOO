@@ -61,6 +61,7 @@ public class Principal {
                             GlobulosBlancos, Presioninterna, Tasadeflujo, EdadPulmon);
                     // AGREGAMOS AL PACIENTE EN EL HOSPITAL (ASOCIACION)
                     hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
+                    
                     console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
@@ -78,7 +79,6 @@ public class Principal {
                                 + pacientebuscar.getApellido());
                                                 
                         //setteamos para asociar paciente-examen 
-
                         examenpaciente.setPaciente(pacientebuscar);
                         pacientebuscar.setExamen(examenpaciente);
                         //llama al metodo generar resultados y los imprime
@@ -101,6 +101,7 @@ public class Principal {
                 }
 
                 case 3 -> {
+                        
                 }
 
                 case 4 -> {

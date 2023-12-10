@@ -17,7 +17,7 @@ public class Examen {
     public String generarResultados() {
         StringBuilder informe = new StringBuilder("");
 
-        informe.append(" -Paciente:    ").append(paciente.getNombre()).append(" ")
+        informe.append(" -PACIENTE:    ").append(paciente.getNombre()).append(" ")
                 .append(paciente.getApellido()).append("\n \n");
         informe.append("   --RESULTADOS DEL EXAMEN-- \n");
 
