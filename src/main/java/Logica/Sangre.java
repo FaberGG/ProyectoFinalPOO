@@ -11,33 +11,17 @@ import lombok.Setter;
  *
  * @author sofi_
  */
-public class Sangre extends Organos_Biologicos {
 
-    @Setter
-    @Getter
-    private int GlobulosRojos;
-    @Setter
-    @Getter
-    private int GlobulosBlancos;
+
+//herencia asociacion muchos -sofia
+// clase abstracta, main, solid  -faber
+public class Sangre implements Organos_Biologicos {
+
+    @Setter @Getter private int GlobulosRojos;
+    @Setter @Getter private int GlobulosBlancos;
 
     public Sangre(int GlobulosRojos, int GlobulosBlancos) {
         this.GlobulosRojos = GlobulosRojos;
-        this.GlobulosBlancos = GlobulosBlancos;
-    }
-
-    public int getGlobulosRojos() {
-        return GlobulosRojos;
-    }
-
-    public void setGlobulosRojos(int GlobulosRojos) {
-        this.GlobulosRojos = GlobulosRojos;
-    }
-
-    public int getGlobulosBlancos() {
-        return GlobulosBlancos;
-    }
-
-    public void setGlobulosBlancos(int GlobulosBlancos) {
         this.GlobulosBlancos = GlobulosBlancos;
     }
 
@@ -50,11 +34,11 @@ public class Sangre extends Organos_Biologicos {
     public String funcionBiologica(Examen examen) {
         String estadoGlobulosBlancos = examen.CalcularGlobulosBlancos(examen.getPaciente());
         String estadoGlobulosRojos = examen.CalcularGlobulosRojos(examen.getPaciente());
-        if (estadoGlobulosRojos == "BAJOS" && estadoGlobulosBlancos == "BAJOS" || estadoGlobulosRojos == "ALTOS" && estadoGlobulosBlancos == "ALTOS") {
+        if ("BAJOS".equals(estadoGlobulosRojos) && "BAJOS".equals(estadoGlobulosBlancos) || "ALTOS".equals(estadoGlobulosRojos) && "ALTOS".equals(estadoGlobulosBlancos)) {
             return "AL REVISAR SU EXÁMEN, SE DETERMINA QUE LA SANGRE SE ENCUENTRA EN UN ESTADO CRITICO";
         } else {
-            if (estadoGlobulosRojos == "BAJOS" && estadoGlobulosBlancos == "NORMAL" || estadoGlobulosRojos == "ALTOS" && estadoGlobulosRojos == "NORMAL"
-                    || estadoGlobulosRojos == "NORMAL" && estadoGlobulosBlancos == "BAJOS" || estadoGlobulosRojos == "NORMAL" && estadoGlobulosRojos == "ALTOS") {
+            if ("BAJOS".equals(estadoGlobulosRojos) && "NORMAL".equals(estadoGlobulosBlancos) || "ALTOS".equals(estadoGlobulosRojos) && "NORMAL".equals(estadoGlobulosRojos)
+                    || "NORMAL".equals(estadoGlobulosRojos) && "BAJOS".equals(estadoGlobulosBlancos) || "NORMAL".equals(estadoGlobulosRojos) && "ALTOS".equals(estadoGlobulosRojos)) {
                 return "AL REVISAR SU EXAMEN, SE DETERMINA QUE EL ESTADO DE LA SANGRE ES MODERADO AUNQUE SE NECESITA HACER MÁS ANÁLISIS";
             }
         }

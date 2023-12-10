@@ -10,67 +10,24 @@ import lombok.Setter;
  * @author sofi_
  */
 
-public class Corazon extends Organos_Biologicos{
+public class Corazon implements Organos_Biologicos{
     @Setter @Getter private int RitmoCardiaco;
     @Setter @Getter private int PresionSitolica;
     @Setter @Getter private int PresionDistolica;
-    @Setter @Getter private int TamañoCorazon;
+    @Setter @Getter private int TamanoCorazon;
     @Setter @Getter private int CantidadGrasa;
 
     public Corazon(int RitmoCardiaco, int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa) {
         this.RitmoCardiaco = RitmoCardiaco;
         this.PresionSitolica = PresionSitolica;
         this.PresionDistolica = PresionDistolica;
-        this.TamañoCorazon = TamañoCorazon;
+        this.TamanoCorazon = TamañoCorazon;
         this.CantidadGrasa = CantidadGrasa;
     }
-
-    public int getRitmoCardiaco() {
-        return RitmoCardiaco;
-    }
-
-    public void setRitmoCardiaco(int RitmoCardiaco) {
-        this.RitmoCardiaco = RitmoCardiaco;
-    }
-
-    public int getPresionSitolica() {
-        return PresionSitolica;
-    }
-
-    public void setPresionSitolica(int PresionSitolica) {
-        this.PresionSitolica = PresionSitolica;
-    }
-
-    public int getPresionDistolica() {
-        return PresionDistolica;
-    }
-
-    public void setPresionDistolica(int PresionDistolica) {
-        this.PresionDistolica = PresionDistolica;
-    }
-
-    public int getTamañoCorazon() {
-        return TamañoCorazon;
-    }
-
-    public void setTamañoCorazon(int TamañoCorazon) {
-        this.TamañoCorazon = TamañoCorazon;
-    }
-
-    public int getCantidadGrasa() {
-        return CantidadGrasa;
-    }
-
-    public void setCantidadGrasa(int CantidadGrasa) {
-        this.CantidadGrasa = CantidadGrasa;
-    }
-
     @Override
     public String toString() {
-        return "Corazon{" + "RitmoCardiaco=" + RitmoCardiaco + ", PresionSitolica=" + PresionSitolica + ", PresionDistolica=" + PresionDistolica + ", Tama\u00f1oCorazon=" + TamañoCorazon + ", CantidadGrasa=" + CantidadGrasa + '}';
+        return "Corazon{" + "RitmoCardiaco=" + RitmoCardiaco + ", PresionSitolica=" + PresionSitolica + ", PresionDistolica=" + PresionDistolica + ", Tama\u00f1oCorazon=" + TamanoCorazon + ", CantidadGrasa=" + CantidadGrasa + '}';
     }
-
-    
     
      @Override
      public String funcionBiologica(Examen examen) {

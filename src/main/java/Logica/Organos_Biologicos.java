@@ -8,7 +8,7 @@ package Logica;
  *
  * @author sofi_
  */
-public abstract class Organos_Biologicos {
+public interface  Organos_Biologicos {
     
     abstract String funcionBiologica(Examen examen);
     

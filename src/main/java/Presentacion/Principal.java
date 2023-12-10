@@ -5,9 +5,11 @@ import Logica.*;
 
 public class Principal {
 
+    //CREAMOS OBJETO PARA RELACIZAR TODAS LAS LECTURAS NECESARIAS
+    static Scanner sc = new Scanner(System.in);
+
     //CREAMOS EL OBJETO HOSPITAL 
     static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur- Alameda del parque");
-    static Scanner sc = new Scanner(System.in);
     //creamos el objeto consola para interactuar con el usuario
     static Consola console = new Consola();
 
@@ -16,13 +18,24 @@ public class Principal {
         //CREAMOS OBJETO EXAMEN
         Examen examenpaciente = new Examen("");
 
+        //CREAMOS LOS OBJETOS DEL PERSONAL MÉDICO (DOCTORES)
+        PersonalMedico doctor1 = new PersonalMedico("Cristian", "Villada", 56, 2222, "Hematologia");
+        PersonalMedico doctor2 = new PersonalMedico("Andres", "Chauta", 46, 1111, "Cardiologia");
+        PersonalMedico doctor3 = new PersonalMedico("Felipe", "Guasca", 36, 3333, "Neumologia");
+        PersonalMedico doctor4 = new PersonalMedico("Sebastian", "Leon", 26, 4444, "Cardiologia");
+
+        //AGREGAMOS A LOS DOCTORES EN EL HOSPITAL 
+        hospitalsanitas.Agregardoctor(doctor1);
+        hospitalsanitas.Agregardoctor(doctor2);
+        hospitalsanitas.Agregardoctor(doctor3);
+        hospitalsanitas.Agregardoctor(doctor4);
+
         // Invocamos el menú
         int opcion;
         do {
             console.ImprimirMenuP();
-
             opcion = console.leerOpcion(5); // rango de opciones
-
+            //CREAMOS EL SWITCH PARA EMPERZAR A TRABAJAR CON CADA CASO
             switch (opcion) {
                 case 1 -> {
 
@@ -34,20 +47,20 @@ public class Principal {
                      */
                     //llamado a la funcion
                     Paciente nuevoPaciente = crearPaciente();
+
                     // AGREGAMOS AL PACIENTE EN EL HOSPITAL (ASOCIACION)
                     hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
+
                     console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
                     int identificacion = console.leerEntero(
-                            "Ingrese la identificacion del paciente para buscar su examen");
-
+                            "Ingrese la identificacion del paciente para buscar su examen: ");
+                    //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
                     Paciente pacientebuscar = hospitalsanitas.BuscarPaciente(identificacion);
 
                     if (pacientebuscar == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
-
-                        break;
                     } else {
                         console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
                                 + pacientebuscar.getApellido());
@@ -58,15 +71,25 @@ public class Principal {
 
                         //llama al metodo generar resultados del examen y los imprime
                         System.out.println(examenpaciente.generarResultados());
-                        // Se llaman los métodos funciones biológicas de corazón y de sangre
 
+                        // Se llaman los métodos funciones biológicas de corazón y de sangre
+                        //hacemos el polimorfismo con clase abstracta
                         String resultadoCorazon = pacientebuscar.getCorazon().funcionBiologica(examenpaciente);
-                        String resultadoSangre = pacientebuscar.getsangre().funcionBiologica(examenpaciente);
+                        String resultadoSangre = pacientebuscar.getSangre().funcionBiologica(examenpaciente);
                         String resultadoPulmon = pacientebuscar.getPulmon().funcionBiologica(examenpaciente);
 
-                        System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN: " + resultadoCorazon);
-                        System.out.println("FUNCION FISIOLOGICA DE LA SANGRE: " + resultadoSangre);
-                        System.out.println("FUNCION FISIOLOGICA DEL PULMON: " + resultadoPulmon);
+                        System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN:\n " + resultadoCorazon);
+                        System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
+                        System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon);
+                        System.out.println("\n ESO ES TODO.... \n \n");
+                        /*Organos_Biologicos organos[]=new Organos_Biologicos[3];
+                         organos[1]=pacientebuscar.getCorazon();
+                         organos[2]=pacientebuscar.getSangre();
+                         organos[3]=pacientebuscar.getPulmon();
+
+                         for (Organos_Biologicos organo:organos){
+                                pacientebuscar.
+                         }*/
                     }
                 }
                 case 3 -> {
@@ -74,22 +97,20 @@ public class Principal {
                 }
 
                 case 4 -> { //mostrar personal del hospital y pacientes
-                    console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getnombre());
+                    console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getNombre());
                     console.imprimirEncabezado("D O C T O R E S ");
                     for (PersonalMedico doctor : hospitalsanitas.getDoctores()) {
 
                     }
                     console.imprimirEncabezado("P A C I E N T E S");
                     for (Paciente paciente : hospitalsanitas.getPacientes()) {
-                        
+
                     }
 
                 }
-
             }
         } while (opcion != 5);// TENGO QUE HACER LA EXCEPCION
         console.imprimirEncabezado("EL PROGRAMA HA FINALIZADO");
-
     }
 
     // acá acaba el main

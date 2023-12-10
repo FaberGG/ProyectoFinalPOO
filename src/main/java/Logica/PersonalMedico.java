@@ -3,41 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+
 import Logica.Paciente;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
+
 /**
  *
  * @author sofi_
  */
 public class PersonalMedico extends Persona {
+    
     @Setter @Getter private String Especializacion;
     @Setter @Getter private Hospital hospital;
-    //private Paciente paciente;
+    @Setter @Getter private List<Paciente> pacientes;
     //PROFE ACÁ EL ATRIBUTO DE TIPO PACIENTE, EL CÓDIGO SIGUE FUNCIONANDO POR LO QUE SOLO ENTRA EL PACIENTE COMO PARÁMETRO
-   
-
-    /*public Paciente getPaciente() {
-        return paciente;
-    }*/
-
-   /*public void setPaciente(Paciente paciente) {
-       this.paciente=paciente;
+    public void AgregarPacientes(Paciente paciente) {
+        pacientes.add(paciente);
     }
- */ 
-     
-    public String obtenerInfo(){
+
+    //implementacion del metodo abstracto
+    @Override
+    public String obtenerInfo() {
         return "Personal Medico";
     }
-    public String getEspecializacion() {
-        return Especializacion;
-    }
-
-    public void setEspecializacion(String Especializacion) {
-        this.Especializacion = Especializacion;
-    }
-
 
     public PersonalMedico(String Nombre, String Apellido, int Edad, int ID, String Especializacion) {
 
@@ -46,39 +38,31 @@ public class PersonalMedico extends Persona {
 
     }
 
-    public void setHospital(Hospital hospital){
-        this.hospital=hospital;
-    }
-    
-    public Hospital getHospital(){
-        return hospital;
-    }
-
     public int RealizarConteo(Paciente paciente) {
-        
+
         int aux = 0;
 
         if (paciente.getEdad() > 60) {
             aux++;
-        } 
+        }
 
-        if (paciente.getExamen().EstadoCardiaco(paciente).equals("Taquicardia") || paciente.getExamen().EstadoCardiaco(paciente).equals("Bradicardia")) {
+        if (paciente.getExamen().EstadoCardiaco(paciente).equals("TAQUICARDIA") || paciente.getExamen().EstadoCardiaco(paciente).equals("BRADICARDIA")) {
             aux += 2;
-        } 
+        }
 
-        if (paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN BAJO")||paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN ALTO")){
+        if (paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN BAJO") || paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN ALTO")) {
             aux += 1;
         }
 
         String estadoPresionArterial = paciente.getExamen().EstadoPresionArterial(paciente);
 
-        if (estadoPresionArterial.equals("bajo / alto") || estadoPresionArterial.equals("alto / alto") || estadoPresionArterial.equals("bajo / bajo") || estadoPresionArterial.equals("alto / bajo")) {
+        if (estadoPresionArterial.equals("BAJO / ALTO") || estadoPresionArterial.equals("ALTO / ALTO") || estadoPresionArterial.equals("BAJO / BAJO") || estadoPresionArterial.equals("ALTO / BAJO")) {
             aux += 1;
         }
-        String EstadoGlobulosG=paciente.getExamen().CalcularGlobulosBlancos(paciente);
-        String EstadoGlobulosR=paciente.getExamen().CalcularGlobulosRojos(paciente);
+        String EstadoGlobulosG = paciente.getExamen().CalcularGlobulosBlancos(paciente);
+        String EstadoGlobulosR = paciente.getExamen().CalcularGlobulosRojos(paciente);
 
-        if (EstadoGlobulosG.equals("BAJOS") || EstadoGlobulosG.equals("ALTOS") ||EstadoGlobulosR.equals("BAJOS") ||EstadoGlobulosR.equals("Altos")) {
+        if (EstadoGlobulosG.equals("BAJOS") || EstadoGlobulosG.equals("ALTOS") || EstadoGlobulosR.equals("BAJOS") || EstadoGlobulosR.equals("ALTOS")) {
             aux += 1;
         }
 
@@ -91,13 +75,13 @@ public class PersonalMedico extends Persona {
         int aux = RealizarConteo(paciente);
 
         if (aux >= 4) {
-            return " Se Remite al paciente";
+            return " Se remite el paciente";
         } else {
-            if(aux < 4 && aux >=1 ){
+            if (aux < 4 && aux >= 1) {
 
                 return "No se remite al paciente y se le administra medicamento";
 
-            }else{
+            } else {
                 return "Se da de alta al paciente";
             }
         }

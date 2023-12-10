@@ -33,38 +33,6 @@ public class Hospital {
         doctor.setHospital(this);
     }
 
-    public String getnombre() {
-        return nombre;
-    }
-
-    public void setnombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public List<Paciente> getPacientes() {
-        return pacientes;
-    }
-
-    public void setPacientes(List<Paciente> pacientes) {
-        this.pacientes = pacientes;
-    }
-
-    public List<PersonalMedico> getDoctores() {
-        return doctores;
-    }
-
-    public void setDoctores(List<PersonalMedico> doctores) {
-        this.doctores = doctores;
-    }
-
     public void AgregarPacientesAlSistema(Paciente paciente) {
         pacientes.add(paciente);
         paciente.setHospital(this);

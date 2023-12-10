@@ -5,6 +5,9 @@
 package Logica;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author sofi_
@@ -17,6 +20,7 @@ public class Paciente extends Persona {
     @Setter @Getter private Hospital hospital;
     @Setter @Getter private Examen examen;
     @Setter @Getter private Pulmon pulmon;
+    @Setter @Getter private List<PersonalMedico> doctores;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
             int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
@@ -29,6 +33,8 @@ public class Paciente extends Persona {
         this.pulmon = new Pulmon(presioninterna, tasadeflujo, edadpulmon);
     }
 
+    //implementacion del metodo abstracto
+    @Override
     public String obtenerInfo(){
         StringBuilder info = new StringBuilder();
         info.append("-----------PACIENTE-----------\n   -");
@@ -39,75 +45,12 @@ public class Paciente extends Persona {
 
         return info.toString();
     }
-    public String getSexo() {
-        return Sexo;
-    }
     
-    public void setSexo(String Sexo) {
-        this.Sexo = Sexo;
-    }
-
-    public Corazon getcorazon() {
-
-        return corazon;
+     public void Agregardoctor(PersonalMedico doctor){
+        doctores.add(doctor);
+       doctor.AgregarPacientes(this);
 
     }
-
-    public void setCorazon(Corazon corazon) {
-
-        this.corazon = corazon;
-
-    }
-
-    public Sangre getsangre() {
-
-        return sangre;
-
-    }
-
-    public void setsangre(Sangre sangre) {
-
-        this.sangre = sangre;
-
-    }
-
-    public Sangre getSangre() {
-        return sangre;
-    }
-
-    public void setSangre(Sangre sangre) {
-        this.sangre = sangre;
-    }
-
-    public Pulmon getPulmon() {
-        return pulmon;
-    }
-
-    public void setPulmon(Pulmon pulmon) {
-        this.pulmon = pulmon;
-    }
-
-    public Corazon getCorazon() {
-        return corazon;
-    }
-    
-
-    public Examen getExamen() {
-        return examen;
-    }
-
-    public void setExamen(Examen examen) {
-        this.examen = examen;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
-    }
-
     @Override
     public String toString() {
         return "Paciente{" + super.toString() + "Sexo=" + Sexo + ", corazon=" + corazon + ", sangre=" + sangre + '}';

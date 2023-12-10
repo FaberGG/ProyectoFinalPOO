@@ -16,52 +16,6 @@ public class Examen {
     @Setter @Getter private Paciente paciente;
     @Setter @Getter private PersonalMedico doctor;
 
-    public String generarResultados() {
-        StringBuilder informe = new StringBuilder("");
-
-        informe.append(" -Paciente:    ").append(paciente.getNombre()).append(" ")
-                .append(paciente.getApellido()).append("\n \n");
-        informe.append("   --RESULTADOS DEL EXAMEN-- \n");
-
-        informe.append("ESTADO CARDIACO: ").append(paciente.getcorazon().getRitmoCardiaco())
-                .append("      ").append(EstadoCardiaco(paciente)).append("\n");
-        informe.append("PRESION ARTERIAL: ").append(paciente.getcorazon().getPresionSitolica())
-                .append("/").append(paciente.getcorazon().getPresionDistolica())
-                .append("     ").append(EstadoPresionArterial(paciente)).append("\n");
-        informe.append("GLOBULOS BLANCOS: ").append(paciente.getsangre().getGlobulosBlancos())
-                .append("      ").append(CalcularGlobulosBlancos(paciente)).append("\n");
-        informe.append("GLOBULOS ROJOS: ").append(paciente.getsangre().getGlobulosRojos())
-                .append("          ").append(CalcularGlobulosRojos(paciente)).append("\n");
-        informe.append("TAMAÑO CORAZON: ").append(paciente.getcorazon().getTamañoCorazon())
-                .append("         ").append(CalcularTamañoCorazon(paciente)).append("\n");
-        informe.append("CANTIDAD GRASA: ").append(paciente.getcorazon().getCantidadGrasa())
-                .append("         ").append(CalcularGrasa(paciente)).append("\n");
-
-        
-        this.Resultados = informe.toString(); 
-        return informe.toString();
-    }
-
-    public String getResultados() {
-        return Resultados;
-    }
-
-    public void setResultados(String Resultados) {
-        this.Resultados = Resultados;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
-    public PersonalMedico getDoctor() {
-        return doctor;
-    }
-
     public Examen(String Resultados) {
         this.Resultados = Resultados;
 
@@ -70,10 +24,36 @@ public class Examen {
     public Examen() {
 
     }
+    
+    public String generarResultados() {
+        StringBuilder informe = new StringBuilder("");
 
+        informe.append(" -PACIENTE:    ").append(paciente.getNombre()).append(" ")
+                .append(paciente.getApellido()).append("\n \n");
+        informe.append("   --RESULTADOS DEL EXAMEN-- \n");
+
+        informe.append("ESTADO CARDIACO: ").append(paciente.getCorazon().getRitmoCardiaco())
+                .append("      ").append(EstadoCardiaco(paciente)).append("\n");
+        informe.append("PRESION ARTERIAL: ").append(paciente.getCorazon().getPresionSitolica())
+                .append("/").append(paciente.getCorazon().getPresionDistolica())
+                .append("     ").append(EstadoPresionArterial(paciente)).append("\n");
+        informe.append("GLOBULOS BLANCOS: ").append(paciente.getSangre().getGlobulosBlancos())
+                .append("      ").append(CalcularGlobulosBlancos(paciente)).append("\n");
+        informe.append("GLOBULOS ROJOS: ").append(paciente.getSangre().getGlobulosRojos())
+                .append("          ").append(CalcularGlobulosRojos(paciente)).append("\n");
+        informe.append("TAMAÑO CORAZON: ").append(paciente.getCorazon().getTamanoCorazon())
+                .append("         ").append(CalcularTamañoCorazon(paciente)).append("\n");
+        informe.append("CANTIDAD GRASA: ").append(paciente.getCorazon().getCantidadGrasa())
+                .append("         ").append(CalcularGrasa(paciente)).append("\n");
+
+        
+        this.Resultados = informe.toString(); 
+        return informe.toString();
+    }
+    
     public String EstadoCardiaco(Paciente paciente) {
 
-        int ritmoCardiaco = paciente.getcorazon().getRitmoCardiaco();
+        int ritmoCardiaco = paciente.getCorazon().getRitmoCardiaco();
 
         if (ritmoCardiaco < 60) {
             return "BRADICARDIA";
@@ -86,8 +66,8 @@ public class Examen {
 
     public String EstadoPresionArterial(Paciente paciente) {
 
-        int presionSistolica = paciente.getcorazon().getPresionSitolica();
-        int presionDistolica = paciente.getcorazon().getPresionDistolica();
+        int presionSistolica = paciente.getCorazon().getPresionSitolica();
+        int presionDistolica = paciente.getCorazon().getPresionDistolica();
 
         String sistolica, distolica;
 
@@ -112,7 +92,7 @@ public class Examen {
 
     public String CalcularGrasa(Paciente paciente) {
 
-        int cantidadGrasa = paciente.getcorazon().getCantidadGrasa();
+        int cantidadGrasa = paciente.getCorazon().getCantidadGrasa();
 
         if (cantidadGrasa < 10) {
             return "BAJO";
@@ -124,7 +104,7 @@ public class Examen {
     }
 
     public String CalcularTamañoCorazon(Paciente paciente) {
-        int tamañoCorazon = paciente.getcorazon().getTamañoCorazon();
+        int tamañoCorazon = paciente.getCorazon().getTamanoCorazon();
 
         if (tamañoCorazon < 60) {
             return "VOLUMEN BAJO";
@@ -137,7 +117,7 @@ public class Examen {
     }
 
     public String CalcularGlobulosRojos(Paciente paciente) {
-        int globulosRojos = paciente.getsangre().getGlobulosRojos();
+        int globulosRojos = paciente.getSangre().getGlobulosRojos();
         if (globulosRojos < 4.5) {
             return "BAJOS";
         } else if (globulosRojos > 6.0) {
@@ -148,7 +128,7 @@ public class Examen {
     }
 
     public String CalcularGlobulosBlancos(Paciente paciente) {
-        int globulosRojos = paciente.getsangre().getGlobulosRojos();
+        int globulosRojos = paciente.getSangre().getGlobulosRojos();
         if (globulosRojos < 4000) {
             return "BAJOS";
         } else if (globulosRojos > 11000) {
