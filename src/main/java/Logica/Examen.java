@@ -49,7 +49,7 @@ public class Examen {
         informe.append("GLOBULOS ROJOS: ").append(paciente.getSangre().getGlobulosRojos())
                 .append("          ").append(CalcularGlobulosRojos(paciente)).append("\n");
         informe.append("TAMAÑO CORAZON: ").append(paciente.getCorazon().getTamanoCorazon())
-                .append("         ").append(CalcularTamañoCorazon(paciente)).append("\n");
+                .append("         ").append(CalcularTamanoCorazon(paciente)).append("\n");
         informe.append("CANTIDAD GRASA: ").append(paciente.getCorazon().getCantidadGrasa())
                 .append("         ").append(CalcularGrasa(paciente)).append("\n");
 
@@ -109,7 +109,7 @@ public class Examen {
         }
     }
 
-    public String CalcularTamañoCorazon(Paciente paciente) {
+    public String CalcularTamanoCorazon(Paciente paciente) {
         int tamañoCorazon = paciente.getCorazon().getTamanoCorazon();
 
         if (tamañoCorazon < 60) {

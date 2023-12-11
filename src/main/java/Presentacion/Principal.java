@@ -2,6 +2,8 @@ package Presentacion;
 
 import java.util.Scanner;
 import Logica.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Principal {
 
@@ -15,23 +17,23 @@ public class Principal {
 
     public static void main(String[] args) {
 
+        /*
+            * SE CREA UN METODO QUE CREA 
+            * LOS DOCTORES ESPECIALIZADOS
+            * Y DEVUELVE LA LISTA DE OBJETOS
+         */
         //CREAMOS LOS OBJETOS DEL PERSONAL MÉDICO (DOCTORES)
-        PersonalMedico doctor1 = new PersonalMedico("Cristian", "Villada", 56, 2222, "Hematologia");
-        PersonalMedico doctor2 = new PersonalMedico("Andres", "Chauta", 46, 1111, "Cardiologia");
-        PersonalMedico doctor3 = new PersonalMedico("Felipe", "Guasca", 36, 3333, "Neumologia");
-        PersonalMedico doctor4 = new PersonalMedico("Sebastian", "Leon", 26, 4444, "Cardiologia");
+        ArrayList<PersonalMedico> doctores = crearDoctores();
 
         //AGREGAMOS A LOS DOCTORES EN EL HOSPITAL 
-        hospitalsanitas.Agregardoctor(doctor1);
-        hospitalsanitas.Agregardoctor(doctor2);
-        hospitalsanitas.Agregardoctor(doctor3);
-        hospitalsanitas.Agregardoctor(doctor4);
+        hospitalsanitas.agregarDoctores(doctores);
 
         // Invocamos el menú
         int opcion;
         do {
             console.ImprimirMenuP();
             opcion = console.leerOpcion(5); // rango de opciones
+
             //CREAMOS EL SWITCH PARA EMPERZAR A TRABAJAR CON CADA CASO
             switch (opcion) {
                 case 1 -> {
@@ -52,13 +54,15 @@ public class Principal {
                     examenpaciente.setPaciente(nuevoPaciente);
                     nuevoPaciente.setExamen(examenpaciente);
 
+                    //asociamos el nuevo paciente con el doctor
+                    nuevoPaciente.agregarDoctores(doctores);
                     // AGREGAMOS AL PACIENTE EN EL HOSPITAL (AGREGACION)
                     hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
-                    nuevoPaciente.setHospital(hospitalsanitas);
 
                     console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
+                    console.imprimirEncabezado(" E X A M I N A R  P A C I E N T E");
                     int identificacion = console.leerEntero(
                             "Ingrese la identificacion del paciente para buscar su examen: ");
                     //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
@@ -85,11 +89,25 @@ public class Principal {
                         System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
                         System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon);
                         System.out.println("\n ESO ES TODO.... \n \n");
-
                     }
                 }
                 case 3 -> {
-
+                    console.imprimirEncabezado(" T R A T A M I E N T O ");
+                    int identificacion = console.leerEntero(
+                            "Ingrese la identificacion del paciente para revisar su tratamiento: ");
+                    //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
+                    Paciente paciente = hospitalsanitas.BuscarPaciente(identificacion);
+                    if (paciente == null) {
+                        System.out.println("No se encontró un paciente con la identificación proporcionada.");
+                    } else {
+                        for (PersonalMedico doctor : doctores) {
+                            //establece el estado de remision a cada paciente
+                            doctor.RealizarRemision();
+                        }
+                        //imprime el estado de remision del paciente
+                        System.out.println("El Paciente " + paciente.getNombre() + " " + paciente.getApellido());
+                        console.imprimirEstadoPaciente(paciente.getEstado());
+                    }
                 }
 
                 case 4 -> { //mostrar personal del hospital y pacientes
@@ -109,6 +127,19 @@ public class Principal {
     }
 
     // acá acaba el main
+    //metodo crear la lista de doctores especializados del hospital
+    private static ArrayList<PersonalMedico> crearDoctores() {
+        ArrayList<PersonalMedico> medicos = new ArrayList<>();
+
+        medicos.add(new PersonalMedico("Cristian", "Villada", 56, 2222, "Hematologia"));
+        medicos.add(new PersonalMedico("Andres", "Chauta", 46, 1111, "Cardiologia"));
+        medicos.add(new PersonalMedico("Felipe", "Guasca", 36, 3333, "Neumologia"));
+        medicos.add(new PersonalMedico("Sebastian", "Leon", 26, 4444, "Cardiologia"));
+
+        return medicos;
+    }
+
+    //metodo para crear el paciente con los datos ingresados por el usuario
     private static Paciente crearPaciente() {
         String Nombre = console.leerString("Ingrese el nombre del paciente: ");
         String Apellido = console.leerString("Ingrese el apellido del paciente: ");

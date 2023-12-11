@@ -23,7 +23,21 @@ public class Consola {
         System.out.println(""); //salto de linea
 
     }
-
+    public void imprimirEstadoPaciente(String estado){
+        switch (estado) {
+            case "REMITIDO":
+                System.out.println("  -Sera remitido con otro especialista");
+                break;
+            case "NO REMITIDO":
+                System.out.println("  -No se remiira, pero se le debe seguir suministrando medicamento");
+                break;
+            case "DADO DE ALTA":
+                System.out.println("  -Sera dado de alta del hospital");
+                break;
+            default:
+                System.err.println("Error Inesperado");;
+        }
+    }
     public int leerOpcion(int rango) {
         int opc;
         do {

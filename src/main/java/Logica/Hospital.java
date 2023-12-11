@@ -32,6 +32,12 @@ public class Hospital {
         this.doctores.add(doctor);
         doctor.setHospital(this);
     }
+    
+    public void agregarDoctores (ArrayList<PersonalMedico> doctores){
+        for (PersonalMedico doctor : doctores) {
+            Agregardoctor(doctor);
+        }
+    }
 
     public void AgregarPacientesAlSistema(Paciente paciente) {
         pacientes.add(paciente);

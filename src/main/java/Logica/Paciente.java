@@ -3,24 +3,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.ArrayList;
+
 /**
  *
  * @author sofi_
  */
 public class Paciente extends Persona {
 
-    @Setter @Getter private String Sexo;
-    @Setter @Getter private Corazon corazon;
-    @Setter @Getter private Sangre sangre;
-    @Setter @Getter private Hospital hospital;
-    @Setter @Getter private Examen examen;
-    @Setter @Getter private Pulmon pulmon;
-    @Setter @Getter private List<PersonalMedico> doctores;
+    @Setter
+    @Getter
+    private String Sexo;
+    @Setter
+    @Getter
+    private String estado;
+    @Setter
+    @Getter
+    private Corazon corazon;
+    @Setter
+    @Getter
+    private Sangre sangre;
+    @Setter
+    @Getter
+    private Hospital hospital;
+    @Setter
+    @Getter
+    private Examen examen;
+    @Setter
+    @Getter
+    private Pulmon pulmon;
+    @Setter
+    @Getter
+    private List<PersonalMedico> doctores;
 
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
             int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
@@ -35,7 +54,7 @@ public class Paciente extends Persona {
 
     //implementacion del metodo abstracto
     @Override
-    public String obtenerInfo(){
+    public String obtenerInfo() {
         StringBuilder info = new StringBuilder();
         info.append("-----------PACIENTE-----------\n   -");
         info.append(this.toString());
@@ -46,13 +65,18 @@ public class Paciente extends Persona {
 
         return info.toString();
     }
-    
-     public void Agregardoctor(PersonalMedico doctor){
-        doctores.add(doctor);
-       doctor.AgregarPacientes(this);
 
+    public void Agregardoctor(PersonalMedico doctor) {
+        doctores.add(doctor);
+        doctor.AgregarPaciente(this);
+    }
+    public void agregarDoctores(ArrayList<PersonalMedico> doctores){
+        for (PersonalMedico doctor : doctores) {
+            Agregardoctor(doctor);
+        }
     }
     @Override
+
     public String toString() {
         return "Paciente{" + super.toString() + "Sexo=" + Sexo + ", corazon=" + corazon + ", sangre=" + sangre + '}';
     }

@@ -17,12 +17,19 @@ import java.util.List;
  * @author sofi_
  */
 public class PersonalMedico extends Persona {
-    
-    @Setter @Getter private String Especializacion;
-    @Setter @Getter private Hospital hospital;
-    @Setter @Getter private List<Paciente> pacientes;
+
+    @Setter
+    @Getter
+    private String Especializacion;
+    @Setter
+    @Getter
+    private Hospital hospital;
+    @Setter
+    @Getter
+    private List<Paciente> pacientes;
+
     //PROFE ACÁ EL ATRIBUTO DE TIPO PACIENTE, EL CÓDIGO SIGUE FUNCIONANDO POR LO QUE SOLO ENTRA EL PACIENTE COMO PARÁMETRO
-    public void AgregarPacientes(Paciente paciente) {
+    public void AgregarPaciente(Paciente paciente) {
         pacientes.add(paciente);
     }
 
@@ -34,7 +41,7 @@ public class PersonalMedico extends Persona {
         info.append(this.toString());
         info.append("-------HOSPITAL ASOCIADO-------\n   -");
         info.append(this.hospital.toString());
-        info.append("------PACIENTES ASOCIADOS------\n   -");        
+        info.append("------PACIENTES ASOCIADOS------\n   -");
         for (Paciente paciente : this.pacientes) {
             info.append(paciente.toString()).append("\n   -");
         }
@@ -60,7 +67,7 @@ public class PersonalMedico extends Persona {
             aux += 2;
         }
 
-        if (paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN BAJO") || paciente.getExamen().CalcularTamañoCorazon(paciente).equals("VOLUMEN ALTO")) {
+        if (paciente.getExamen().CalcularTamanoCorazon(paciente).equals("VOLUMEN BAJO") || paciente.getExamen().CalcularTamanoCorazon(paciente).equals("VOLUMEN ALTO")) {
             aux += 1;
         }
 
@@ -80,19 +87,18 @@ public class PersonalMedico extends Persona {
 
     }
 
-    public String RealizarRemision(Paciente paciente) {
-
-        int aux = RealizarConteo(paciente);
-
-        if (aux >= 4) {
-            return " Se remite el paciente";
-        } else {
-            if (aux < 4 && aux >= 1) {
-
-                return "No se remite al paciente y se le administra medicamento";
-
+    public void RealizarRemision(){
+        
+        //ciclo que recorre el arreglo de objetos paciente para establecer el estado
+        for (Paciente paciente : pacientes) {
+            int aux = RealizarConteo(paciente);
+            
+            if (aux >= 4) {// se remite el paciente 
+                paciente.setEstado("REMITIDO");
+            } else if (aux >= 1 && aux < 4) {
+                paciente.setEstado("NO REMITIDO");
             } else {
-                return "Se da de alta al paciente";
+                paciente.setEstado("DADO DE ALTA");
             }
         }
 
