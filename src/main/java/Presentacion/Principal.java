@@ -28,6 +28,16 @@ public class Principal {
         //AGREGAMOS A LOS DOCTORES EN EL HOSPITAL 
         hospitalsanitas.agregarDoctores(doctores);
 
+        //CREAMOS EL OBJETO DE TIPO PERSONALADMINISTRATIVO PARA REALIZAR LA AUTORELACION 
+        PersonalAdministrativo secretario = new PersonalAdministrativo("Thiago", "Bedoya", 18, 8888, 5646);
+        PersonalAdministrativo auxiliar = new PersonalAdministrativo("Simon", "Arrechabaleta", 19, 0000, 5657);
+
+        //SETTEAMOS PARA ESTABLECER LA RELACION
+        secretario.setSecretario(auxiliar);
+
+        //Agregamos al secretario al hospital
+        hospitalsanitas.setSecretario(auxiliar);
+
         // Invocamos el menú
         int opcion;
         do {
@@ -113,6 +123,7 @@ public class Principal {
                 case 4 -> { //mostrar personal del hospital y pacientes
                     console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getNombre());
                     console.imprimirEncabezado("D O C T O R E S ");
+                    //HACEMOS USO DEL MÉTODO ABSTRACTO PARA LAS TRES CLASES HIJAS DE LA CLASE PADRE (PERSONA)
                     for (PersonalMedico doctor : hospitalsanitas.getDoctores()) {
                         System.out.println(doctor.obtenerInfo());
                     }
@@ -120,6 +131,11 @@ public class Principal {
                     for (Paciente paciente : hospitalsanitas.getPacientes()) {
                         System.out.println(paciente.obtenerInfo());
                     }
+
+                    //MOSTRAMOS LA AUTORELACIÓN, SECRETARIO-AUXILIAR, PARA PERSONAL ADMINISTRATIVO  
+                    console.imprimirEncabezado("P E R S O N A L   A D M I N I S T R A T I V O");
+                    System.out.println("Secretario: " + secretario.getNombre() + " " + secretario.getApellido() + " ////" + "Codigo de empresa " + secretario.getCodigo());
+                    System.out.println("Auxiliar: " + auxiliar.getNombre() + " " + auxiliar.getApellido() + " //// " + "Codigo de la empresa " + auxiliar.getCodigo());
                 }
             }
         } while (opcion != 5);// TENGO QUE HACER LA EXCEPCION

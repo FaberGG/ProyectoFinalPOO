@@ -19,6 +19,8 @@ public class Hospital {
     @Setter @Getter private String direccion;
     @Setter @Getter private List<Paciente> pacientes;
     @Setter @Getter private List<PersonalMedico> doctores;
+    @Setter @Getter private PersonalAdministrativo secretario;
+    
 
     public Hospital(String nombre, String direccion) {
         this.nombre = nombre;
@@ -57,5 +59,5 @@ public class Hospital {
         }
         return null;
 
-    }
+    }   
 }

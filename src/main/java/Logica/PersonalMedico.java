@@ -101,7 +101,5 @@ public class PersonalMedico extends Persona {
                 paciente.setEstado("DADO DE ALTA");
             }
         }
-
     }
-
 }
