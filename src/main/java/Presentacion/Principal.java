@@ -100,13 +100,12 @@ public class Principal {
                     console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getNombre());
                     console.imprimirEncabezado("D O C T O R E S ");
                     for (PersonalMedico doctor : hospitalsanitas.getDoctores()) {
-
+                        System.out.println(doctor.obtenerInfo());
                     }
                     console.imprimirEncabezado("P A C I E N T E S");
                     for (Paciente paciente : hospitalsanitas.getPacientes()) {
-
+                        System.out.println(paciente.obtenerInfo());
                     }
-
                 }
             }
         } while (opcion != 5);// TENGO QUE HACER LA EXCEPCION

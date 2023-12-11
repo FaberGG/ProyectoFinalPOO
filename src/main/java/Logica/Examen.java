@@ -12,12 +12,12 @@ import lombok.Getter;
  */
 public class Examen {
 
-    @Setter @Getter private String Resultados;
+    @Setter @Getter private String resultados;
     @Setter @Getter private Paciente paciente;
     @Setter @Getter private PersonalMedico doctor;
 
     public Examen(String Resultados) {
-        this.Resultados = Resultados;
+        this.resultados = Resultados;
 
     }
 
@@ -47,7 +47,7 @@ public class Examen {
                 .append("         ").append(CalcularGrasa(paciente)).append("\n");
 
         
-        this.Resultados = informe.toString(); 
+        this.resultados = informe.toString(); 
         return informe.toString();
     }
     
@@ -168,5 +168,12 @@ public class Examen {
             return "EDAD DE PULMONES NORMAL ";
         }
     }
+
+    @Override
+    public String toString() {
+        return "Examen{" + "resultados=  \n" + resultados + " paciente=" + paciente.getNombre() + ", doctor=" + doctor.getNombre() + '}';
+    }
+    
+    
 
 }

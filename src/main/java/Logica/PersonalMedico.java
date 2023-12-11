@@ -5,6 +5,7 @@
 package Logica;
 
 import Logica.Paciente;
+import java.util.ArrayList;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -33,8 +34,7 @@ public class PersonalMedico extends Persona {
         info.append(this.toString());
         info.append("-------HOSPITAL ASOCIADO-------\n   -");
         info.append(this.hospital.toString());
-        info.append("------PACIENTES ASOCIADOS------\n   -");
-        
+        info.append("------PACIENTES ASOCIADOS------\n   -");        
         for (Paciente paciente : this.pacientes) {
             info.append(paciente.toString()).append("\n   -");
         }
@@ -45,7 +45,7 @@ public class PersonalMedico extends Persona {
 
         super(Nombre, Apellido, Edad, ID);
         this.Especializacion = Especializacion;
-
+        this.pacientes = new ArrayList<>();
     }
 
     public int RealizarConteo(Paciente paciente) {
