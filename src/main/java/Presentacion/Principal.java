@@ -41,13 +41,17 @@ public class Principal {
         // Invocamos el menú
         int opcion;
         do {
-            console.ImprimirMenuP();
-            opcion = console.leerOpcion(5); // rango de opciones
+            console.limpiarPantalla(); // limpia la consola
+            console.ImprimirMenuP();   //imprime el menu
+
+            opcion = console.leerOpcion(5); // rango de opciones del menu
+            console.limpiarPantalla(); //limpia la consola
 
             //CREAMOS EL SWITCH PARA EMPERZAR A TRABAJAR CON CADA CASO
             switch (opcion) {
                 case 1 -> {
 
+                    console.imprimirEncabezado("A G R E G A R  P A C I E N T E");
                     /* 
                         * SE CREA EL METODO PARA LEER LOS DATOS POR 
                         * CONSOLA, ESTE CREA EL OBJETO PACIENTE
@@ -168,6 +172,9 @@ public class Principal {
                                                DE INGRESARLO AL SISTEMA.
                                                AHORA INGRESEMOS TUS DATOS CARDIOL\u00d3GICOS
                                                """);
+
+        console.esperarTecla();
+        console.limpiarPantalla();
 
         int RitmoCardiaco = console.leerEntero(
                 "Ingrese latidos por minuto del paciente: ");

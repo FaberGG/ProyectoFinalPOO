@@ -5,7 +5,9 @@
 package Presentacion;
 
 import static Presentacion.Principal.sc;
+import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +18,7 @@ public class Consola {
     public void Consola() {
 
     }
+
     public void imprimirEncabezado(String msg) {
         System.out.println("-------------------------------------------");
         System.out.println(" " + msg.toUpperCase() + " ");
@@ -23,7 +26,8 @@ public class Consola {
         System.out.println(""); //salto de linea
 
     }
-    public void imprimirEstadoPaciente(String estado){
+
+    public void imprimirEstadoPaciente(String estado) {
         switch (estado) {
             case "REMITIDO":
                 System.out.println("  -Sera remitido con otro especialista");
@@ -35,9 +39,37 @@ public class Consola {
                 System.out.println("  -Sera dado de alta del hospital");
                 break;
             default:
-                System.err.println("Error Inesperado");;
+                System.err.println("Error Inesperado");
+                ;
         }
     }
+
+    //funcion limpiar consola segun el sistema operativo
+    public void limpiarPantalla() {
+        try {
+            //revisa en que os esta ejecutando
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                // Para Windows
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Para sistemas tipo Unix
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (IOException | InterruptedException e) {
+            System.out.println("Error al intentar limpiar la consola.");
+        }
+    }
+
+    // Función para esperar a que se presione una tecla
+    public void esperarTecla() {
+        System.out.println("\nPresiona ENTER para continuar...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine(); // Espera hasta que se presione Enter
+    }
+
     public int leerOpcion(int rango) {
         int opc;
         do {

@@ -30,6 +30,7 @@ public class Paciente extends Persona {
             int GlobulosBlancos, int presioninterna, int tasadeflujo, int edadpulmon) {
             super(Nombre, Apellido, Edad, ID);
             this.Sexo = Sexo;
+            this.doctores = new ArrayList<>();
         //CREAMOS LOS OBJETOS DE LAS COMPOSICIONES 
         this.corazon = new Corazon(RitmoCardiaco, PresionSitolica, PresionDistolica, TamañoCorazon, CantidadGrasa);
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);
