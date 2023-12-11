@@ -28,6 +28,9 @@ public class Hospital {
         this.direccion = direccion;
         this.pacientes = new ArrayList<>();
         this.doctores = new ArrayList<>();
+        this.secretarios = new ArrayList<>();
+        this.auxiliares = new ArrayList<>();
+
     }
 
     //Creamos el metodo para agregar los doctores al hospital 

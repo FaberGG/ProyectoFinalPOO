@@ -21,6 +21,7 @@ public abstract class Persona {
     //metodo abstracto
     public abstract String obtenerInfo();
 
+    //metodo para el polimorfismo
     public Persona(String Nombre, String Apellido, int Edad, int ID) {
 
         this.Nombre = Nombre;
@@ -30,6 +31,7 @@ public abstract class Persona {
 
     }
 
+    
     @Override
     public String toString() {
         return "Persona{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Edad=" + Edad + ", ID=" + ID + '}';
