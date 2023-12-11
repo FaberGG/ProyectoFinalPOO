@@ -231,7 +231,7 @@ public class Principal {
                 "Ingrese la edad de los pulmones: ");
 
         //se crea el paciente con los datos ingresados por el usuario
-        Paciente nuevoPaciente = new Paciente(Nombre, Apellido, Edad, Identificacion, Sexo, RitmoCardiaco,
+        Paciente nuevoPaciente = new Paciente(Nombre, Apellido, Edad, Identificacion, sexo, RitmoCardiaco,
                 PresionSistolica, PresionDistolica, TamañoCorazon, CantidadGrasa, GlobulosRojos,
                 GlobulosBlancos, Presioninterna, Tasadeflujo, EdadPulmon);
         return nuevoPaciente;
