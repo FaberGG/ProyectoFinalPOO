@@ -3,15 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author sofi_
  */
 public class PersonalAdministrativo extends Persona {
-    int codigo; 
-    private PersonalAdministrativo secretario; //Autorelacion
-    private Hospital hospitalsanitas;
+    @Setter @Getter private int codigo; 
+    @Setter @Getter private PersonalAdministrativo secretario; //Autorelacion
+    @Setter @Getter private Hospital hospitalsanitas;
 
     
     public PersonalAdministrativo( String Nombre, String Apellido, int Edad, int ID, int codigo) {
@@ -21,32 +23,7 @@ public class PersonalAdministrativo extends Persona {
     }
     
     
-    public Hospital getHospitalsanitas() {
-        return hospitalsanitas;
-    }
-
-    public void setHospitalsanitas(Hospital hospitalsanitas) {
-        this.hospitalsanitas = hospitalsanitas;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public PersonalAdministrativo getSecretario() {
-        return secretario;
-    }
-
-    public void setSecretario(PersonalAdministrativo secretario) {
-        this.secretario = secretario;
-    }
-    
-
-    
+       
     @Override
     public String obtenerInfo() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
