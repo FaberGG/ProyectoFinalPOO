@@ -58,7 +58,7 @@ public class Examen {
         if (ritmoCardiaco < 60) {
             return "BRADICARDIA";
         } else if (ritmoCardiaco > 100) {
-            return "TAQUICARDI";
+            return "TAQUICARDIA";
         } else {
             return "NORMAL";
         }
