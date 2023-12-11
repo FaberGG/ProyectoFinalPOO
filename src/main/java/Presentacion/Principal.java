@@ -49,10 +49,10 @@ public class Principal {
                     Paciente nuevoPaciente = crearPaciente();
 
                     // AGREGAMOS AL PACIENTE EN EL HOSPITAL (AGREGACION)
-                        hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
-                        nuevoPaciente.setHospital(hospitalsanitas);
+                    hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
+                    nuevoPaciente.setHospital(hospitalsanitas);
 
-                        console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
+                    console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
                     int identificacion = console.leerEntero(
@@ -83,7 +83,7 @@ public class Principal {
                         System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
                         System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon);
                         System.out.println("\n ESO ES TODO.... \n \n");
-                       
+
                     }
                 }
                 case 3 -> {
