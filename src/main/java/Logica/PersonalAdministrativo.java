@@ -37,7 +37,7 @@ public class PersonalAdministrativo extends Persona {
 
     @Override
     public String toString() {//11 tabs
-        return super.toString() + " codigo:          " + codigo +
+        return super.toString() + "\n codigo:          " + codigo +
                "\n cargo:           " + cargo;
     }
 }
