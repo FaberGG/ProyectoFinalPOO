@@ -51,10 +51,30 @@ public class Paciente extends Persona {
         return info.toString();
     }
 
+    //POLIMORFISMO CON SOBRECARGA DE MÉTODOS
+    public String MostrarDatosIngresados(){
+      StringBuilder info = new StringBuilder();
+     info.append("-----------DATOS DE LA SANGRE DEL PACIENTE-----------\n   -");
+     info.append(this.toStringsangre());  
+    return info.toString();
+
+    }
+    
+    public String MostrarDatosIngresados(String pulmon, String corazon){
+      StringBuilder info = new StringBuilder();
+     info.append("-----------DATOS DE CORAZON Y PULMON DEL PACIENTE-----------\n   -");
+     info.append(pulmon);
+     info.append(corazon); 
+     return info.toString();
+    }
+
+
     public void Agregardoctor(PersonalMedico doctor) {
         doctores.add(doctor);
         doctor.AgregarPaciente(this);
     }
+
+
     public void agregarDoctores(ArrayList<PersonalMedico> doctores){
         for (PersonalMedico doctor : doctores) {
             Agregardoctor(doctor);
@@ -63,7 +83,14 @@ public class Paciente extends Persona {
     @Override
 
     public String toString() {
-        return "Paciente{" + super.toString() + "Sexo=" + Sexo + ", corazon=" + corazon + ", sangre=" + sangre + '}';
+        return "Paciente{" + super.toString() + "Sexo=" + Sexo + '}';
+    }
+
+     /*public String toStringcorazonypulmon() {
+        return "Paciente{" + "Informacion registrada del corazon    " + corazon   + "\nInformación registrada de la sangre     "+sangre + "\nInformacion registrada de los pulmones" + pulmon +'}';
+    }*/
+      public String toStringsangre() {
+        return "Paciente{"+ "Informacion registrada de la sangre  " + sangre +'}';
     }
 
 }

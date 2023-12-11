@@ -21,8 +21,6 @@ public class PersonalAdministrativo extends Persona {
         this.codigo = codigo;
         this.secretario=null;
     }
-    
-    
        
     @Override
     public String obtenerInfo() {

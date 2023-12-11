@@ -133,7 +133,11 @@ public class Principal {
                     }
                     console.imprimirEncabezado("P A C I E N T E S");
                     for (Paciente paciente : hospitalsanitas.getPacientes()) {
+                        String datosC=paciente.getCorazon().toString();
+                        String datosP=paciente.getPulmon().toString();
                         System.out.println(paciente.obtenerInfo());
+                        System.out.println(paciente.MostrarDatosIngresados());
+                        System.out.println(paciente.MostrarDatosIngresados(datosP,datosC));
                     }
 
                     //MOSTRAMOS LA AUTORELACIÓN, SECRETARIO-AUXILIAR, PARA PERSONAL ADMINISTRATIVO  
