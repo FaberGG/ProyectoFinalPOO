@@ -79,7 +79,9 @@ public class Principal {
                     console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
+         
                     console.imprimirEncabezado(" E X A M I N A R  P A C I E N T E");
+                     
                     int identificacion = console.leerEntero(
                             "Ingrese la identificacion del paciente para buscar su examen: ");
                     //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
@@ -90,7 +92,7 @@ public class Principal {
                     } else {
                         console.imprimirEncabezado("EXAMEN PACIENTE " + paciente.getNombre() + " "
                                 + paciente.getApellido());
-
+                    
                         //llamamos al examen asociado al paciente encontrado
                         Examen examenpaciente = paciente.getExamen();
                         //llama al metodo generar resultados del examen y los imprime
@@ -110,9 +112,10 @@ public class Principal {
                 }
                 case 3 -> {
                     console.imprimirEncabezado(" T R A T A M I E N T O ");
+                    
                     int identificacion = console.leerEntero(
                             "Ingrese la identificacion del paciente para revisar su tratamiento: ");
-                    //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
+            //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
                     Paciente paciente = hospitalsanitas.BuscarPaciente(identificacion);
                     if (paciente == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
@@ -173,12 +176,38 @@ public class Principal {
     }
 
     //metodo para crear el paciente con los datos ingresados por el usuario
-    private static Paciente crearPaciente() {
-        String Nombre = console.leerString("Ingrese el nombre del paciente: ");
-        String Apellido = console.leerString("Ingrese el apellido del paciente: ");
-        int Edad = console.leerEntero("Ingrese la edad del paciente: ");
-        int Identificacion = console.leerEntero("Ingrese la identificación del paciente: ");
-        String Sexo = console.leerString("Ingrese el sexo del paciente");
+        private static Paciente crearPaciente() {
+        String Nombre = console.leerString("\n Ingrese el nombre del paciente: ");
+        String Apellido = console.leerString("\nIngrese el apellido del paciente: ");
+        int Edad = console.leerEntero("\nIngrese la edad del paciente: ");
+
+         //CREAMOS LA EXCEPCION PARA INVALIDAR CADENAS INVÁLIDAS
+        try {
+            String sexo = console.leerString("\nIngrese el sexo del paciente");
+            // Resto del código con el sexo obtenido
+            System.out.println("Sexo ingresado: " + sexo);
+        } catch (Exception e) {
+            System.out.println("Error al leer el sexo del paciente. Asegúrate de ingresar una cadena válida.");
+        } finally { 
+        }
+
+        
+        //CREAMOS UNA EXCEPCIÓN PARA INVALIDAR NUMEROS NEGATIVOS PARA LA IDENTIFICACION DEL USUARIO
+        boolean entradaValida = false;
+        int Identificacion=0;
+        while (!entradaValida) {
+            try {
+               Identificacion = console.leerEntero("\nIngrese la identificación del paciente: ");
+
+                if (Identificacion < 0) {
+                    System.out.println("Error: No se permiten valores negativos. Por favor, ingrese un valor válido.");
+                } else {
+                    entradaValida = true;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Ingrese un valor entero válido.");
+            }
+        }
 
         console.imprimirEncabezado("""
                                                MUY BIEN, ESTAMOS A UN PASO 
