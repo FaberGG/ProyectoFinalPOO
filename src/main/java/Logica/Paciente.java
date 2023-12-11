@@ -25,8 +25,8 @@ public class Paciente extends Persona {
     public Paciente(String Nombre, String Apellido, int Edad, int ID, String Sexo, int RitmoCardiaco,
             int PresionSitolica, int PresionDistolica, int TamañoCorazon, int CantidadGrasa, int GlobulosRojos,
             int GlobulosBlancos, int presioninterna, int tasadeflujo, int edadpulmon) {
-        super(Nombre, Apellido, Edad, ID);
-        this.Sexo = Sexo;
+            super(Nombre, Apellido, Edad, ID);
+            this.Sexo = Sexo;
         //CREAMOS LOS OBJETOS DE LAS COMPOSICIONES 
         this.corazon = new Corazon(RitmoCardiaco, PresionSitolica, PresionDistolica, TamañoCorazon, CantidadGrasa);
         this.sangre = new Sangre(GlobulosRojos, GlobulosBlancos);

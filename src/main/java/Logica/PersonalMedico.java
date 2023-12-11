@@ -85,14 +85,14 @@ public class PersonalMedico extends Persona {
         int aux = RealizarConteo(paciente);
 
         if (aux >= 4) {
-            return " Se remite el paciente";
+            return " SE REMITE AL PACIENTE";
         } else {
             if (aux < 4 && aux >= 1) {
 
-                return "No se remite al paciente y se le administra medicamento";
+                return "NO SE REMITE AL PACIENTE PERO SE REALIZA CONTROL DE MEDICAMENTO";
 
             } else {
-                return "Se da de alta al paciente";
+                return "SE DA DE ALTA AL PACIENTE";
             }
         }
 
