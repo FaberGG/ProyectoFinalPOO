@@ -181,17 +181,7 @@ public class Principal {
         String Nombre = console.leerString("\n Ingrese el nombre del paciente: ");
         String Apellido = console.leerString("\nIngrese el apellido del paciente: ");
         int Edad = console.leerEntero("\nIngrese la edad del paciente: ");
-
-         //CREAMOS LA EXCEPCION PARA INVALIDAR CADENAS INVÁLIDAS
-        try {
-            String sexo = console.leerString("\nIngrese el sexo del paciente");
-            // Resto del código con el sexo obtenido
-            System.out.println("Sexo ingresado: " + sexo);
-        } catch (Exception e) {
-            System.out.println("Error al leer el sexo del paciente. Asegúrate de ingresar una cadena válida.");
-        } finally { 
-        }
-
+        String sexo = console.leerString("\nIngrese el sexo del paciente");
         
         //CREAMOS UNA EXCEPCIÓN PARA INVALIDAR NUMEROS NEGATIVOS PARA LA IDENTIFICACION DEL USUARIO
         boolean entradaValida = false;

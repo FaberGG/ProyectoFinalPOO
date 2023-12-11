@@ -100,9 +100,14 @@ public class Consola {
 
     public String leerString(String mensaje) {
         String cadena;
-        System.out.println(mensaje);
-        cadena = sc.next();
-
+        try {
+            System.out.println(mensaje);
+            cadena = sc.next();
+        } catch (Exception e) {
+            System.out.println("Error al leer. Asegúrate de ingresar una cadena válida.");
+            return null;
+        } finally {
+        }
         return cadena;
     }
 
