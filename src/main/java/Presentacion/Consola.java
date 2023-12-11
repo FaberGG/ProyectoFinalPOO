@@ -33,7 +33,7 @@ public class Consola {
                 System.out.println("  -Sera remitido con otro especialista");
                 break;
             case "NO REMITIDO":
-                System.out.println("  -No se remiira, pero se le debe seguir suministrando medicamento");
+                System.out.println("  -No se remitira, pero se le debe seguir suministrando medicamento");
                 break;
             case "DADO DE ALTA":
                 System.out.println("  -Sera dado de alta del hospital");

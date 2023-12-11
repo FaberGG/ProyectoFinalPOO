@@ -34,24 +34,25 @@ public class Examen {
 
     public String generarResultados() {
         StringBuilder informe = new StringBuilder("");
-
-        informe.append(" -PACIENTE:    ").append(paciente.getNombre()).append(" ")
-                .append(paciente.getApellido()).append("\n \n");
         informe.append("   --RESULTADOS DEL EXAMEN-- \n");
-
-        informe.append("ESTADO CARDIACO: ").append(paciente.getCorazon().getRitmoCardiaco())
+        informe.append("PACIENTE:             ")
+                .append(paciente.getNombreCompleto().toUpperCase())
+                .append("\n");
+        informe.append("ESTADO CARDIACO:  ")
+                .append(paciente.getCorazon().getRitmoCardiaco())
                 .append("      ").append(EstadoCardiaco(paciente)).append("\n");
-        informe.append("PRESION ARTERIAL: ").append(paciente.getCorazon().getPresionSitolica())
+        informe.append("PRESION ARTERIAL: ")
+                .append(paciente.getCorazon().getPresionSitolica())
                 .append("/").append(paciente.getCorazon().getPresionDistolica())
-                .append("     ").append(EstadoPresionArterial(paciente)).append("\n");
+                .append("   ").append(EstadoPresionArterial(paciente)).append("\n");
         informe.append("GLOBULOS BLANCOS: ").append(paciente.getSangre().getGlobulosBlancos())
                 .append("      ").append(CalcularGlobulosBlancos(paciente)).append("\n");
         informe.append("GLOBULOS ROJOS: ").append(paciente.getSangre().getGlobulosRojos())
-                .append("          ").append(CalcularGlobulosRojos(paciente)).append("\n");
+                .append("       ").append(CalcularGlobulosRojos(paciente)).append("\n");
         informe.append("TAMAÑO CORAZON: ").append(paciente.getCorazon().getTamanoCorazon())
-                .append("         ").append(CalcularTamanoCorazon(paciente)).append("\n");
+                .append("        ").append(CalcularTamanoCorazon(paciente)).append("\n");
         informe.append("CANTIDAD GRASA: ").append(paciente.getCorazon().getCantidadGrasa())
-                .append("         ").append(CalcularGrasa(paciente)).append("\n");
+                .append("        ").append(CalcularGrasa(paciente)).append("\n");
 
         this.resultados = informe.toString();
         return informe.toString();

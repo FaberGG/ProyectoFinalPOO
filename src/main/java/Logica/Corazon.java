@@ -26,7 +26,9 @@ public class Corazon implements Organos_Biologicos{
     }
     @Override
     public String toString() {
-        return "Corazon{" + "RitmoCardiaco=" + RitmoCardiaco + ", PresionSitolica=" + PresionSitolica + ", PresionDistolica=" + PresionDistolica + ", Tama\u00f1oCorazon=" + TamanoCorazon + ", CantidadGrasa=" + CantidadGrasa + '}';
+        return "\nCorazon:" + "\n RitmoCardiaco:    " + RitmoCardiaco + "\n PresionSitolica:  " 
+                + PresionSitolica + "\n PresionDistolica: " + PresionDistolica + 
+                "\n Tama\u00f1oCorazon:    " + TamanoCorazon + "\n CantidadGrasa:    " + CantidadGrasa;
     }
     
      @Override

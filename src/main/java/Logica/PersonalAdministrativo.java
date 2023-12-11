@@ -12,21 +12,32 @@ import lombok.Setter;
  */
 public class PersonalAdministrativo extends Persona {
     @Setter @Getter private int codigo; 
+    @Setter @Getter private String cargo; 
     @Setter @Getter private PersonalAdministrativo auxiliar; //Autorelacion
     @Setter @Getter private Hospital hospitalsanitas;
 
     
-    public PersonalAdministrativo( String Nombre, String Apellido, int Edad, int ID, int codigo) {
+    public PersonalAdministrativo( String Nombre, String Apellido, String cargo, int Edad, int ID, int codigo) {
         super(Nombre, Apellido, Edad, ID);
+        this.cargo = cargo;
         this.codigo = codigo;
         this.auxiliar=null;
     }
        
     @Override
     public String obtenerInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        StringBuilder info = new StringBuilder();
+        info.append("------------------------------- \n");
+        info.append("-----------").append(cargo.toUpperCase()).append("-----------\n");
+        info.append(this.toString());
+        info.append("\n-------------------------------\n");
+
+        return info.toString();
     }
-    
-    
-    
+
+    @Override
+    public String toString() {//11 tabs
+        return super.toString() + " codigo:          " + codigo +
+               "\n cargo:           " + cargo;
+    }
 }

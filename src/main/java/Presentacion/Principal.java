@@ -11,7 +11,7 @@ public class Principal {
     static Scanner sc = new Scanner(System.in);
 
     //CREAMOS EL OBJETO HOSPITAL 
-    static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur- Alameda del parque");
+    static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur\n  Alameda del parque");
     //creamos el objeto consola para interactuar con el usuario
     static Consola console = new Consola();
 
@@ -32,8 +32,8 @@ public class Principal {
         hospitalsanitas.agregarDoctores(doctores);
 
         //CREAMOS EL OBJETO DE TIPO PERSONALADMINISTRATIVO PARA REALIZAR LA AUTORELACION 
-        PersonalAdministrativo secretario = new PersonalAdministrativo("Thiago", "Bedoya", 18, 8888, 5646);
-        PersonalAdministrativo auxiliar = new PersonalAdministrativo("Simon", "Arrechabaleta", 19, 0000, 5657);
+        PersonalAdministrativo secretario = new PersonalAdministrativo("Thiago", "Bedoya", "Secretario" ,18, 8888, 5646);
+        PersonalAdministrativo auxiliar = new PersonalAdministrativo("Simon", "Arrechabaleta", "Auxiliar" ,19, 0000, 5657);
 
         //SETTEAMOS PARA ESTABLECER LA RELACION
         secretario.setAuxiliar(auxiliar);
@@ -102,9 +102,9 @@ public class Principal {
                         String resultadoSangre = paciente.getSangre().funcionBiologica(examenpaciente);
                         String resultadoPulmon = paciente.getPulmon().funcionBiologica(examenpaciente);
 
-                        System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN:\n " + resultadoCorazon);
-                        System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
-                        System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon);
+                        System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN:\n " + resultadoCorazon.toLowerCase());
+                        System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre.toLowerCase());
+                        System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon.toLowerCase());
                         System.out.println("\n ESO ES TODO.... \n \n");
                     }
                 }
@@ -136,6 +136,7 @@ public class Principal {
                     //HACEMOS USO DEL MÉTODO ABSTRACTO PARA OBTENER INFORMACION DE CADA UNA
                     //trato los objetos de la clase hija como objetos de la clase padre
                     for (Persona persona : personas) {
+                        System.out.println("");//salto de linea adicional
                         System.out.println(persona.obtenerInfo());
                     }
                 }

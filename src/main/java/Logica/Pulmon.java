@@ -22,7 +22,8 @@ public class Pulmon implements Organos_Biologicos {
     
     @Override
     public String toString() {
-        return "Pulmon{" + "PresionInterna=" + PresionInterna + ", Tasadeflujo=" + Tasadeflujo + ", Edadpulmon=" + Edadpulmon + '}';
+        return "\nPulmon:" + "\n PresionInterna:  " + PresionInterna + "\n Tasadeflujo:     " 
+                + Tasadeflujo + "\n Edadpulmon:      " + Edadpulmon;
     }
 
      @Override

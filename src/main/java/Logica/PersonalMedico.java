@@ -38,13 +38,13 @@ public class PersonalMedico extends Persona {
     public String obtenerInfo() {
         StringBuilder info = new StringBuilder();
         info.append("------------------------------- \n");
-        info.append("-------PERSONAL MEDICO---------\n   -");
+        info.append("-------PERSONAL MEDICO---------\n");
         info.append(this.toString());
-        info.append("-------HOSPITAL ASOCIADO-------\n   -");
+        info.append("\n-------HOSPITAL ASOCIADO-------\n");
         info.append(this.hospital.toString());
-        info.append("------PACIENTES ASOCIADOS------\n   -");
+        info.append("\n------PACIENTES ASOCIADOS------\n");
         for (Paciente paciente : this.pacientes) {
-            info.append(paciente.toString()).append("\n   -");
+            info.append(paciente.toString()).append("\n");
         }
         info.append("------------------------------- \n");
         return info.toString();
@@ -104,4 +104,12 @@ public class PersonalMedico extends Persona {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + 
+                "\n Especializacion:  " + Especializacion;
+    }
+    
+    
 }

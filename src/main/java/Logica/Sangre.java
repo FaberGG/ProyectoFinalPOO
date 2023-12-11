@@ -25,7 +25,8 @@ public class Sangre implements Organos_Biologicos {
 
     @Override
     public String toString() {
-        return "Sangre{" + "GlobulosRojos=" + GlobulosRojos + ", GlobulosBlancos=" + GlobulosBlancos + '}';
+        return " GlobulosRojos:       " 
+                + GlobulosRojos + "\n GlobulosBlancos:     " + GlobulosBlancos;
     }
 
     @Override

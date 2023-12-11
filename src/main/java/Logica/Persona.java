@@ -30,11 +30,15 @@ public abstract class Persona {
         this.ID = ID;
 
     }
-
+    public String getNombreCompleto(){
+        return Nombre + " " +Apellido;
+    }
     
     @Override
     public String toString() {
-        return "Persona{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Edad=" + Edad + ", ID=" + ID + '}';
+        return "\n Nombre:          " + Nombre + "\n Apellido:        " + Apellido + 
+                "\n Edad:            " + Edad + 
+                "\n ID:              " + ID;
     }
 
 }

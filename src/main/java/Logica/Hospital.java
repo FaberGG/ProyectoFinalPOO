@@ -69,4 +69,10 @@ public class Hospital {
         return null;
 
     }   
+
+    @Override
+    public String toString() {
+        return " \n nombre:   " + nombre + "\n direccion:" + direccion;
+    }
+    
 }
