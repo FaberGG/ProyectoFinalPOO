@@ -48,10 +48,11 @@ public class Principal {
                     //llamado a la funcion
                     Paciente nuevoPaciente = crearPaciente();
 
-                    // AGREGAMOS AL PACIENTE EN EL HOSPITAL (ASOCIACION)
-                    hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
+                    // AGREGAMOS AL PACIENTE EN EL HOSPITAL (AGREGACION)
+                        hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
+                        nuevoPaciente.setHospital(hospitalsanitas);
 
-                    console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
+                        console.imprimirEncabezado("!!!Paciente agregado con exito!!!");
                 }
                 case 2 -> {
                     int identificacion = console.leerEntero(
@@ -82,14 +83,7 @@ public class Principal {
                         System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
                         System.out.println("FUNCION FISIOLOGICA DEL PULMON:\n " + resultadoPulmon);
                         System.out.println("\n ESO ES TODO.... \n \n");
-                        /*Organos_Biologicos organos[]=new Organos_Biologicos[3];
-                         organos[1]=pacientebuscar.getCorazon();
-                         organos[2]=pacientebuscar.getSangre();
-                         organos[3]=pacientebuscar.getPulmon();
-
-                         for (Organos_Biologicos organo:organos){
-                                pacientebuscar.
-                         }*/
+                       
                     }
                 }
                 case 3 -> {
