@@ -10,13 +10,17 @@ public class Principal {
     //CREAMOS OBJETO PARA RELACIZAR TODAS LAS LECTURAS NECESARIAS
     static Scanner sc = new Scanner(System.in);
 
+    
     //CREAMOS EL OBJETO HOSPITAL 
     static Hospital hospitalsanitas = new Hospital("Sanitas", "Crra 78k-no78B-78Sur- Alameda del parque");
     //creamos el objeto consola para interactuar con el usuario
     static Consola console = new Consola();
 
     public static void main(String[] args) {
-
+        
+        //CREAMOS LA LISTA DE PERSONAS EN EL HOSPITAL (polimorfismno inclusion)
+        List<Persona> personas = new ArrayList<>();
+        
         /*
             * SE CREA UN METODO QUE CREA 
             * LOS DOCTORES ESPECIALIZADOS
@@ -33,10 +37,10 @@ public class Principal {
         PersonalAdministrativo auxiliar = new PersonalAdministrativo("Simon", "Arrechabaleta", 19, 0000, 5657);
 
         //SETTEAMOS PARA ESTABLECER LA RELACION
-        secretario.setSecretario(auxiliar);
+        secretario.setAuxiliar(auxiliar);
 
         //Agregamos al secretario al hospital
-        hospitalsanitas.setSecretario(auxiliar);
+        hospitalsanitas.agregarSecretario(secretario);
 
         // Invocamos el menú
         int opcion;
@@ -63,7 +67,7 @@ public class Principal {
 
                     //CREAMOS OBJETO EXAMEN
                     Examen examenpaciente = new Examen("");
-
+                    
                     //setteamos para asociar paciente-examen 
                     examenpaciente.setPaciente(nuevoPaciente);
                     nuevoPaciente.setExamen(examenpaciente);
@@ -125,28 +129,26 @@ public class Principal {
                 }
 
                 case 4 -> { //mostrar personal del hospital y pacientes
-                    console.imprimirEncabezado("LISTA DE DOCTORES Y PACIENTES EN " + hospitalsanitas.getNombre());
-                    console.imprimirEncabezado("D O C T O R E S ");
-                    //HACEMOS USO DEL MÉTODO ABSTRACTO PARA LAS TRES CLASES HIJAS DE LA CLASE PADRE (PERSONA)
-                    for (PersonalMedico doctor : hospitalsanitas.getDoctores()) {
-                        System.out.println(doctor.obtenerInfo());
+                    console.imprimirEncabezado("LISTA DE PERSONAL Y PACIENTES EN " + hospitalsanitas.getNombre());
+                    
+                    //obtenemos todas las personas en el hostpital
+                    personas = obtenerPersonas(hospitalsanitas);
+                    
+                    //HACEMOS USO DEL MÉTODO ABSTRACTO PARA OBTENER INFORMACION DE CADA UNA
+                    //trato los objetos de la clase hija como objetos de la clase padre
+                    for (Persona persona : personas) {
+                        System.out.println(persona.obtenerInfo());
                     }
-                    console.imprimirEncabezado("P A C I E N T E S");
-                    for (Paciente paciente : hospitalsanitas.getPacientes()) {
-                        System.out.println(paciente.obtenerInfo());
-                    }
-
-                    //MOSTRAMOS LA AUTORELACIÓN, SECRETARIO-AUXILIAR, PARA PERSONAL ADMINISTRATIVO  
-                    console.imprimirEncabezado("P E R S O N A L   A D M I N I S T R A T I V O");
-                    System.out.println("Secretario: " + secretario.getNombre() + " " + secretario.getApellido() + " ////" + "Codigo de empresa " + secretario.getCodigo());
-                    System.out.println("Auxiliar: " + auxiliar.getNombre() + " " + auxiliar.getApellido() + " //// " + "Codigo de la empresa " + auxiliar.getCodigo());
                 }
             }
+            console.esperarTecla();
         } while (opcion != 5);// TENGO QUE HACER LA EXCEPCION
         console.imprimirEncabezado("EL PROGRAMA HA FINALIZADO");
     }
-
     // acá acaba el main
+    
+    
+    
     //metodo crear la lista de doctores especializados del hospital
     private static ArrayList<PersonalMedico> crearDoctores() {
         ArrayList<PersonalMedico> medicos = new ArrayList<>();
@@ -158,7 +160,22 @@ public class Principal {
 
         return medicos;
     }
-
+    
+    //funcion para crear la lista de todas las personas en un hospital
+    private static List<Persona> obtenerPersonas(Hospital hospital){
+        List<Persona> personas = new ArrayList<>();
+        //para el personal medico
+        personas.addAll(hospital.getDoctores());
+        //para secretarios
+        personas.addAll(hospital.getSecretarios());
+        //para auxiliares
+        personas.addAll(hospital.getAuxiliares());
+        //para pacientes en el hospital
+        personas.addAll(hospital.getPacientes());
+        return personas;
+    } 
+    
+    
     //metodo para crear el paciente con los datos ingresados por el usuario
     private static Paciente crearPaciente() {
         String Nombre = console.leerString("Ingrese el nombre del paciente: ");

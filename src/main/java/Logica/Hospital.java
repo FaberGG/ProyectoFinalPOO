@@ -19,8 +19,9 @@ public class Hospital {
     @Setter @Getter private String direccion;
     @Setter @Getter private List<Paciente> pacientes;
     @Setter @Getter private List<PersonalMedico> doctores;
-    @Setter @Getter private PersonalAdministrativo secretario;
-    
+    @Setter @Getter private List<PersonalAdministrativo> secretarios;
+    @Setter @Getter private List<PersonalAdministrativo> auxiliares;
+
 
     public Hospital(String nombre, String direccion) {
         this.nombre = nombre;
@@ -40,10 +41,15 @@ public class Hospital {
             Agregardoctor(doctor);
         }
     }
-
+    public void agregarSecretario (PersonalAdministrativo secretario){
+        secretario.getAuxiliar().setHospital(this);
+        secretario.setHospital(this);
+        auxiliares.add(secretario.getAuxiliar());
+        secretarios.add(secretario);
+    }
     public void AgregarPacientesAlSistema(Paciente paciente) {
-        pacientes.add(paciente);
         paciente.setHospital(this);
+        pacientes.add(paciente);
     }
 
     public void RemoverPaciente(Paciente paciente) {

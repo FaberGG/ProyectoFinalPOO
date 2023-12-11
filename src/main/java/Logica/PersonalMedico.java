@@ -37,6 +37,7 @@ public class PersonalMedico extends Persona {
     @Override
     public String obtenerInfo() {
         StringBuilder info = new StringBuilder();
+        info.append("------------------------------- \n");
         info.append("-------PERSONAL MEDICO---------\n   -");
         info.append(this.toString());
         info.append("-------HOSPITAL ASOCIADO-------\n   -");
@@ -45,6 +46,7 @@ public class PersonalMedico extends Persona {
         for (Paciente paciente : this.pacientes) {
             info.append(paciente.toString()).append("\n   -");
         }
+        info.append("------------------------------- \n");
         return info.toString();
     }
 
@@ -87,12 +89,12 @@ public class PersonalMedico extends Persona {
 
     }
 
-    public void RealizarRemision(){
-        
+    public void RealizarRemision() {
+
         //ciclo que recorre el arreglo de objetos paciente para establecer el estado
         for (Paciente paciente : pacientes) {
             int aux = RealizarConteo(paciente);
-            
+
             if (aux >= 4) {// se remite el paciente 
                 paciente.setEstado("REMITIDO");
             } else if (aux >= 1 && aux < 4) {
