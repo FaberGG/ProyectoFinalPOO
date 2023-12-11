@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Logica;
+
 import lombok.Setter;
 import lombok.Getter;
 
@@ -12,9 +13,15 @@ import lombok.Getter;
  */
 public class Examen {
 
-    @Setter @Getter private String resultados;
-    @Setter @Getter private Paciente paciente;
-    @Setter @Getter private PersonalMedico doctor;
+    @Setter
+    @Getter
+    private String resultados;
+    @Setter
+    @Getter
+    private Paciente paciente;
+    @Setter
+    @Getter
+    private PersonalMedico doctor;
 
     public Examen(String Resultados) {
         this.resultados = Resultados;
@@ -24,7 +31,7 @@ public class Examen {
     public Examen() {
 
     }
-    
+
     public String generarResultados() {
         StringBuilder informe = new StringBuilder("");
 
@@ -46,11 +53,10 @@ public class Examen {
         informe.append("CANTIDAD GRASA: ").append(paciente.getCorazon().getCantidadGrasa())
                 .append("         ").append(CalcularGrasa(paciente)).append("\n");
 
-        
-        this.resultados = informe.toString(); 
+        this.resultados = informe.toString();
         return informe.toString();
     }
-    
+
     public String EstadoCardiaco(Paciente paciente) {
 
         int ritmoCardiaco = paciente.getCorazon().getRitmoCardiaco();
@@ -171,9 +177,11 @@ public class Examen {
 
     @Override
     public String toString() {
-        return "Examen{" + "resultados=  \n" + resultados + " paciente=" + paciente.getNombre() + ", doctor=" + doctor.getNombre() + '}';
+        String cadena = "Examen{" + "resultados=  \n";
+        cadena += generarResultados() + " paciente=" + paciente.getNombre();
+        if (doctor == null) {
+            return cadena;
+        }
+        return cadena + ", doctor=" + doctor.getNombre() + '}';
     }
-    
-    
-
 }

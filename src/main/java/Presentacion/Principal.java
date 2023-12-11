@@ -15,9 +15,6 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        //CREAMOS OBJETO EXAMEN
-        Examen examenpaciente = new Examen("");
-
         //CREAMOS LOS OBJETOS DEL PERSONAL MÉDICO (DOCTORES)
         PersonalMedico doctor1 = new PersonalMedico("Cristian", "Villada", 56, 2222, "Hematologia");
         PersonalMedico doctor2 = new PersonalMedico("Andres", "Chauta", 46, 1111, "Cardiologia");
@@ -48,6 +45,13 @@ public class Principal {
                     //llamado a la funcion
                     Paciente nuevoPaciente = crearPaciente();
 
+                    //CREAMOS OBJETO EXAMEN
+                    Examen examenpaciente = new Examen("");
+
+                    //setteamos para asociar paciente-examen 
+                    examenpaciente.setPaciente(nuevoPaciente);
+                    nuevoPaciente.setExamen(examenpaciente);
+
                     // AGREGAMOS AL PACIENTE EN EL HOSPITAL (AGREGACION)
                     hospitalsanitas.AgregarPacientesAlSistema(nuevoPaciente);
                     nuevoPaciente.setHospital(hospitalsanitas);
@@ -58,26 +62,24 @@ public class Principal {
                     int identificacion = console.leerEntero(
                             "Ingrese la identificacion del paciente para buscar su examen: ");
                     //Invocamos el metodo para buscar el paciente, el cual está en la clase Hospital
-                    Paciente pacientebuscar = hospitalsanitas.BuscarPaciente(identificacion);
+                    Paciente paciente = hospitalsanitas.BuscarPaciente(identificacion);
 
-                    if (pacientebuscar == null) {
+                    if (paciente == null) {
                         System.out.println("No se encontró un paciente con la identificación proporcionada.");
                     } else {
-                        console.imprimirEncabezado("EXAMEN PACIENTE " + pacientebuscar.getNombre() + " "
-                                + pacientebuscar.getApellido());
+                        console.imprimirEncabezado("EXAMEN PACIENTE " + paciente.getNombre() + " "
+                                + paciente.getApellido());
 
-                        //setteamos para asociar paciente-examen 
-                        examenpaciente.setPaciente(pacientebuscar);
-                        pacientebuscar.setExamen(examenpaciente);
-
+                        //llamamos al examen asociado al paciente encontrado
+                        Examen examenpaciente = paciente.getExamen();
                         //llama al metodo generar resultados del examen y los imprime
                         System.out.println(examenpaciente.generarResultados());
 
                         // Se llaman los métodos funciones biológicas de corazón y de sangre
                         //hacemos el polimorfismo con clase abstracta
-                        String resultadoCorazon = pacientebuscar.getCorazon().funcionBiologica(examenpaciente);
-                        String resultadoSangre = pacientebuscar.getSangre().funcionBiologica(examenpaciente);
-                        String resultadoPulmon = pacientebuscar.getPulmon().funcionBiologica(examenpaciente);
+                        String resultadoCorazon = paciente.getCorazon().funcionBiologica(examenpaciente);
+                        String resultadoSangre = paciente.getSangre().funcionBiologica(examenpaciente);
+                        String resultadoPulmon = paciente.getPulmon().funcionBiologica(examenpaciente);
 
                         System.out.println("FUNCION FISIOLOGICA DEL CORAZÓN:\n " + resultadoCorazon);
                         System.out.println("FUNCION FISIOLOGICA DE LA SANGRE:\n " + resultadoSangre);
