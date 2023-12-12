@@ -135,10 +135,10 @@ public class Examen {
     }
 
     public String CalcularGlobulosBlancos(Paciente paciente) {
-        int globulosRojos = paciente.getSangre().getGlobulosRojos();
-        if (globulosRojos < 4000) {
+        int globulosBlancos = paciente.getSangre().getGlobulosBlancos();
+        if (globulosBlancos < 4000) {
             return "BAJOS";
-        } else if (globulosRojos > 11000) {
+        } else if (globulosBlancos > 11000) {
             return "ALTOS";
         } else {
             return "NORMAL";
