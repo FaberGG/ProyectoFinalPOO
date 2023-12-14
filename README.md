@@ -25,7 +25,7 @@ Los principios SOLID son un conjunto de principios de diseño de software que no
 
 Un UML (Lenguaje de Modelado Unificado) es una herramienta gráfica utilizada en la programación orientada a objetos para representar visualmente la estructura y el comportamiento de un sistema. A continuación se presenta el diagrama de clases UML del proyecto construido.
 
-![Proyecto%20final%20POO%20aac4e631568f4fef8150570c7d8148b8/image2.png](Proyecto%20final%20POO%20aac4e631568f4fef8150570c7d8148b8/image2.png)
+![Proyecto%20final%20POO%20aac4e631568f4fef8150570c7d8148b8/image2.png](https://github.com/FaberGG/ProyectoFinalPOO/blob/main/ReadmeImages/image2.png)
 
 ---
 
